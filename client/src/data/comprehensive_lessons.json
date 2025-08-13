@@ -1,0 +1,86 @@
+[
+  {
+    "id": "python-intro",
+    "title": "Introduction to Python",
+    "description": "Welcome to Python programming! Learn what Python is and why it's popular.",
+    "category": "Basics",
+    "difficulty": "beginner",
+    "estimatedTime": 10,
+    "xpReward": 30,
+    "prerequisites": [],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What is Python?",
+        "content": "Python is a high-level, interpreted programming language created by Guido van Rossum in 1991. It's designed with readability in mind, using English keywords and simple syntax. Python is used in web development, data science, artificial intelligence, automation, and scientific computing."
+      },
+      {
+        "id": "step-2",
+        "type": "content",
+        "title": "Why Choose Python?",
+        "content": "• Easy to learn and read - Python's syntax is clean and intuitive\n• Versatile - Used in many fields from web apps to AI\n• Large community - Millions of developers worldwide\n• Rich libraries - Thousands of pre-built packages available\n• Cross-platform - Runs on Windows, Mac, Linux"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Your First Python Program",
+        "content": "The traditional first program in any language prints 'Hello, World!' to the screen:",
+        "code": "print('Hello, World!')\nprint('Welcome to Python programming!')\nprint('Python is', 2024 - 1991, 'years old')",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Personal Greeting",
+        "description": "Create a program that prints a greeting with your name.",
+        "starterCode": "# Print a greeting with your name\n",
+        "expectedOutput": "Hello, my name is [Your Name]",
+        "solution": "print('Hello, my name is Alice')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium", 
+        "title": "Python Facts",
+        "description": "Print three interesting facts about Python using multiple print statements.",
+        "starterCode": "# Print three facts about Python\n",
+        "expectedOutput": "Fact 1: Python was named after Monty Python\nFact 2: Python is open source\nFact 3: Python is interpreted, not compiled",
+        "solution": "print('Fact 1: Python was named after Monty Python')\nprint('Fact 2: Python is open source')\nprint('Fact 3: Python is interpreted, not compiled')"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Dynamic Information",
+        "description": "Create a program that displays the current year and calculates Python's age dynamically.",
+        "starterCode": "# Calculate and display Python's age\n# Python was created in 1991\n",
+        "expectedOutput": "Current year: 2024\nPython's age: 33 years",
+        "solution": "import datetime\ncurrent_year = datetime.datetime.now().year\npython_birth_year = 1991\nage = current_year - python_birth_year\nprint(f'Current year: {current_year}')\nprint(f'Python\\'s age: {age} years')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Who created the Python programming language?",
+        "type": "multiple-choice",
+        "options": ["Dennis Ritchie", "Guido van Rossum", "James Gosling", "Bjarne Stroustrup"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2", 
+        "question": "Python was first released in which year?",
+        "type": "multiple-choice",
+        "options": ["1989", "1991", "1995", "2000"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which function is used to display output in Python?",
+        "type": "multiple-choice", 
+        "options": ["output()", "display()", "print()", "show()"],
+        "correctAnswer": 2
+      }
+    ]
+  }
+]

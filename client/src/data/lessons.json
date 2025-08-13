@@ -1,243 +1,724 @@
 [
   {
-    "id": "python-basics-1",
-    "title": "What is Python?",
-    "description": "Introduction to Python programming language",
+    "id": "python-intro",
+    "title": "Introduction to Python",
+    "description": "Welcome to Python programming! Learn what Python is and why it's popular.",
     "category": "Basics",
     "difficulty": "beginner",
-    "estimatedTime": 5,
-    "xpReward": 25,
+    "estimatedTime": 10,
+    "xpReward": 30,
     "prerequisites": [],
     "steps": [
       {
         "id": "step-1",
         "type": "content",
-        "title": "Welcome to Python!",
-        "content": "Python is a powerful, easy-to-learn programming language. It's used for web development, data analysis, artificial intelligence, and much more!"
+        "title": "What is Python?",
+        "content": "Python is a high-level, interpreted programming language created by Guido van Rossum in 1991. It's designed with readability in mind, using English keywords and simple syntax. Python is used in web development, data science, artificial intelligence, automation, and scientific computing."
       },
       {
         "id": "step-2",
         "type": "content",
-        "title": "Why Python?",
-        "content": "Python is beginner-friendly with clean, readable syntax. It's one of the most popular programming languages in the world!"
+        "title": "Why Choose Python?",
+        "content": "• Easy to learn and read - Python's syntax is clean and intuitive\n• Versatile - Used in many fields from web apps to AI\n• Large community - Millions of developers worldwide\n• Rich libraries - Thousands of pre-built packages available\n• Cross-platform - Runs on Windows, Mac, Linux"
       },
       {
         "id": "step-3",
         "type": "code",
-        "title": "Your First Python Code",
-        "content": "Let's start with the classic 'Hello, World!' program:",
-        "code": "print('Hello, World!')",
+        "title": "Your First Python Program",
+        "content": "The traditional first program in any language prints 'Hello, World!' to the screen:",
+        "code": "print('Hello, World!')\nprint('Welcome to Python programming!')\nprint('Python is', 2024 - 1991, 'years old')",
         "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Personal Greeting",
+        "description": "Create a program that prints a greeting with your name.",
+        "starterCode": "# Print a greeting with your name\n",
+        "expectedOutput": "Hello, my name is [Your Name]",
+        "solution": "print('Hello, my name is Alice')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium", 
+        "title": "Python Facts",
+        "description": "Print three interesting facts about Python using multiple print statements.",
+        "starterCode": "# Print three facts about Python\n",
+        "expectedOutput": "Fact 1: Python was named after Monty Python\nFact 2: Python is open source\nFact 3: Python is interpreted, not compiled",
+        "solution": "print('Fact 1: Python was named after Monty Python')\nprint('Fact 2: Python is open source')\nprint('Fact 3: Python is interpreted, not compiled')"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Dynamic Information",
+        "description": "Create a program that displays the current year and calculates Python's age dynamically.",
+        "starterCode": "# Calculate and display Python's age\n# Python was created in 1991\n",
+        "expectedOutput": "Current year: 2024\nPython's age: 33 years",
+        "solution": "import datetime\ncurrent_year = datetime.datetime.now().year\npython_birth_year = 1991\nage = current_year - python_birth_year\nprint(f'Current year: {current_year}')\nprint(f'Python\\'s age: {age} years')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Who created the Python programming language?",
+        "type": "multiple-choice",
+        "options": ["Dennis Ritchie", "Guido van Rossum", "James Gosling", "Bjarne Stroustrup"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2", 
+        "question": "Python was first released in which year?",
+        "type": "multiple-choice",
+        "options": ["1989", "1991", "1995", "2000"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which function is used to display output in Python?",
+        "type": "multiple-choice", 
+        "options": ["output()", "display()", "print()", "show()"],
+        "correctAnswer": 2
       }
     ]
   },
   {
-    "id": "python-variables-1",
-    "title": "Python Variables",
-    "description": "Learn how to store and use data in Python",
-    "category": "Variables",
+    "id": "python-variables",
+    "title": "Variables and Data Types",
+    "description": "Learn to store and manipulate different types of data in Python.",
+    "category": "Basics",
     "difficulty": "beginner",
-    "estimatedTime": 8,
-    "xpReward": 30,
-    "prerequisites": ["python-basics-1"],
+    "estimatedTime": 15,
+    "xpReward": 40,
+    "prerequisites": ["python-intro"],
     "steps": [
       {
         "id": "step-1",
         "type": "content",
-        "title": "What are Variables?",
-        "content": "Variables are containers that store data values. In Python, you don't need to declare the type of variable - Python figures it out automatically!"
+        "title": "Understanding Variables",
+        "content": "A variable is a named storage location in memory that holds data. In Python, variables are created when you assign a value to them. Unlike other languages, you don't need to declare the variable type - Python automatically determines it based on the value assigned."
       },
       {
         "id": "step-2",
         "type": "code",
         "title": "Creating Variables",
-        "content": "Here's how you create variables in Python:",
-        "code": "name = 'Alice'\nage = 25\nheight = 5.6\nis_student = True\n\nprint(name)\nprint(age)",
+        "content": "Here's how to create variables of different types:",
+        "code": "# String variable\nname = 'Alice'\nfull_name = \"Alice Johnson\"\n\n# Integer variable\nage = 25\nyear = 2024\n\n# Float variable\nheight = 5.6\ntemperature = 98.6\n\n# Boolean variable\nis_student = True\nhas_job = False\n\nprint(name, age, height, is_student)",
         "language": "python"
       },
       {
         "id": "step-3",
-        "type": "exercise",
-        "title": "Try It Yourself!",
-        "exercise": {
-          "instructions": "Create a variable called 'city' and assign it the value 'New York'",
-          "startingCode": "# Create your variable here\n",
-          "solution": "city = 'New York'",
-          "testCases": [
-            {
-              "input": "",
-              "expectedOutput": "New York"
-            }
-          ]
-        }
+        "type": "content",
+        "title": "Python Data Types",
+        "content": "Python has several built-in data types:\n\n• str (String) - Text data: 'Hello'\n• int (Integer) - Whole numbers: 42\n• float - Decimal numbers: 3.14\n• bool (Boolean) - True or False\n• list - Ordered collection: [1, 2, 3]\n• dict (Dictionary) - Key-value pairs: {'key': 'value'}\n• tuple - Immutable sequence: (1, 2, 3)\n• set - Unique elements: {1, 2, 3}"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Checking Data Types",
+        "content": "Use the type() function to check what type of data a variable contains:",
+        "code": "name = 'Alice'\nage = 25\nheight = 5.6\nis_student = True\n\nprint(type(name))      # <class 'str'>\nprint(type(age))       # <class 'int'>\nprint(type(height))    # <class 'float'>\nprint(type(is_student)) # <class 'bool'>",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Personal Information",
+        "description": "Create variables to store your name, age, and favorite color, then print them.",
+        "starterCode": "# Create variables for personal information\n",
+        "expectedOutput": "Name: Alice\nAge: 25\nFavorite Color: Blue",
+        "solution": "name = 'Alice'\nage = 25\nfavorite_color = 'Blue'\n\nprint('Name:', name)\nprint('Age:', age)\nprint('Favorite Color:', favorite_color)"
+      },
+      {
+        "id": "medium-1", 
+        "difficulty": "Medium",
+        "title": "Variable Operations", 
+        "description": "Create numeric variables and perform basic calculations, storing results in new variables.",
+        "starterCode": "# Create variables for a rectangle's dimensions\nlength = 10\nwidth = 5\n# Calculate area and perimeter\n",
+        "expectedOutput": "Area: 50\nPerimeter: 30",
+        "solution": "length = 10\nwidth = 5\narea = length * width\nperimeter = 2 * (length + width)\n\nprint('Area:', area)\nprint('Perimeter:', perimeter)"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Type Conversion Challenge",
+        "description": "Create a program that takes string numbers, converts them to integers, performs calculations, and displays results.",
+        "starterCode": "# String numbers that need conversion\nnum1_str = '15'\nnum2_str = '25'\n# Convert to integers and calculate\n",
+        "expectedOutput": "Sum: 40\nProduct: 375\nAverage: 20.0",
+        "solution": "num1_str = '15'\nnum2_str = '25'\n\nnum1 = int(num1_str)\nnum2 = int(num2_str)\n\nsum_result = num1 + num2\nproduct = num1 * num2\naverage = sum_result / 2\n\nprint('Sum:', sum_result)\nprint('Product:', product)\nprint('Average:', average)"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Which of these is a valid variable name in Python?",
+        "type": "multiple-choice",
+        "options": ["2user", "user-name", "user_name", "user name"],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q2",
+        "question": "What data type is the value 3.14?",
+        "type": "multiple-choice",
+        "options": ["int", "float", "str", "bool"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which function tells you the data type of a variable?",
+        "type": "multiple-choice",
+        "options": ["typeof()", "type()", "datatype()", "kind()"],
+        "correctAnswer": 1
       }
     ]
   },
   {
-    "id": "python-functions-1",
-    "title": "Introduction to Functions",
-    "description": "Learn to create reusable code blocks",
+    "id": "python-dictionaries",
+    "title": "Dictionaries and Key-Value Data",
+    "description": "Master Python dictionaries for storing and accessing data with keys.",
+    "category": "Data Structures",
+    "difficulty": "intermediate",
+    "estimatedTime": 30,
+    "xpReward": 55,
+    "prerequisites": ["python-variables"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Understanding Dictionaries",
+        "content": "Dictionaries are collections of key-value pairs, similar to real-world dictionaries where words (keys) have definitions (values). They're unordered, mutable, and extremely useful for representing structured data like records, configurations, and mappings."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating and Accessing Dictionaries",
+        "content": "Different ways to create and work with dictionaries:",
+        "code": "# Creating dictionaries\nstudent = {\n    'name': 'Alice',\n    'age': 20,\n    'grade': 'A',\n    'enrolled': True\n}\n\n# Empty dictionary\nempty_dict = {}\n\n# Accessing values\nprint(student['name'])        # Alice\nprint(student.get('age'))     # 20\nprint(student.get('phone', 'Not provided'))  # Not provided\n\n# Check if key exists\nprint('grade' in student)     # True",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Modifying Dictionaries",
+        "content": "Dictionaries are mutable - you can change them after creation:",
+        "code": "# Starting dictionary\nproduct = {\n    'name': 'Laptop',\n    'price': 999.99,\n    'category': 'Electronics'\n}\n\n# Add new key-value pairs\nproduct['brand'] = 'TechCorp'\nproduct['in_stock'] = True\n\n# Update existing values\nproduct['price'] = 899.99\n\n# Remove items\ndel product['category']  # Remove with del\nremoved_stock = product.pop('in_stock')  # Remove and return value\n\nprint(product)\nprint(f'Stock status was: {removed_stock}')",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Dictionary Methods and Iteration",
+        "content": "Useful methods for working with dictionaries:",
+        "code": "# Sample data\ninventory = {\n    'apples': 50,\n    'bananas': 30,\n    'oranges': 25,\n    'grapes': 40\n}\n\n# Get all keys, values, and items\nprint('Fruits:', list(inventory.keys()))\nprint('Quantities:', list(inventory.values()))\nprint('All items:', list(inventory.items()))\n\n# Iterate through dictionary\nfor fruit, quantity in inventory.items():\n    print(f'{fruit}: {quantity} units')\n\n# Dictionary comprehension\nlow_stock = {fruit: qty for fruit, qty in inventory.items() if qty < 35}\nprint('Low stock:', low_stock)",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Student Record",
+        "description": "Create a dictionary to store student information and display it.",
+        "starterCode": "# Create a student record\nstudent_id = '12345'\nname = 'John Doe'\nage = 18\nmajor = 'Computer Science'\n",
+        "expectedOutput": "Student Record:\nID: 12345\nName: John Doe\nAge: 18\nMajor: Computer Science",
+        "solution": "student_id = '12345'\nname = 'John Doe'\nage = 18\nmajor = 'Computer Science'\n\nstudent = {\n    'id': student_id,\n    'name': name,\n    'age': age,\n    'major': major\n}\n\nprint('Student Record:')\nprint(f'ID: {student[\"id\"]}')\nprint(f'Name: {student[\"name\"]}')\nprint(f'Age: {student[\"age\"]}')\nprint(f'Major: {student[\"major\"]}')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Inventory Manager",
+        "description": "Create an inventory system that tracks products and their quantities.",
+        "starterCode": "# Inventory management system\ninventory = {\n    'laptops': 15,\n    'mice': 50,\n    'keyboards': 23\n}\n# Add monitors: 8, update laptops to 12, remove mice\n",
+        "expectedOutput": "Updated Inventory:\nlaptops: 12\nkeyboards: 23\nmonitors: 8\nRemoved mice: 50 units",
+        "solution": "inventory = {\n    'laptops': 15,\n    'mice': 50,\n    'keyboards': 23\n}\n\n# Add monitors\ninventory['monitors'] = 8\n\n# Update laptops\ninventory['laptops'] = 12\n\n# Remove mice\nremoved_mice = inventory.pop('mice')\n\nprint('Updated Inventory:')\nfor item, quantity in inventory.items():\n    print(f'{item}: {quantity}')\nprint(f'Removed mice: {removed_mice} units')"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Grade Calculator System",
+        "description": "Create a comprehensive grade management system with multiple students and subjects.",
+        "starterCode": "# Grade management system\nstudents = {\n    'Alice': {'Math': 95, 'Science': 88, 'English': 92},\n    'Bob': {'Math': 78, 'Science': 85, 'English': 90},\n    'Carol': {'Math': 88, 'Science': 92, 'English': 85}\n}\n",
+        "expectedOutput": "Grade Report:\nAlice - Average: 91.67 (A)\nBob - Average: 84.33 (B)\nCarol - Average: 88.33 (B)\n\nSubject Averages:\nMath: 87.0\nScience: 88.33\nEnglish: 89.0",
+        "solution": "students = {\n    'Alice': {'Math': 95, 'Science': 88, 'English': 92},\n    'Bob': {'Math': 78, 'Science': 85, 'English': 90},\n    'Carol': {'Math': 88, 'Science': 92, 'English': 85}\n}\n\n# Calculate student averages\nprint('Grade Report:')\nfor student, grades in students.items():\n    average = sum(grades.values()) / len(grades)\n    if average >= 90:\n        letter_grade = 'A'\n    elif average >= 80:\n        letter_grade = 'B'\n    elif average >= 70:\n        letter_grade = 'C'\n    else:\n        letter_grade = 'F'\n    print(f'{student} - Average: {average:.2f} ({letter_grade})')\n\n# Calculate subject averages\nprint('\\nSubject Averages:')\nsubjects = ['Math', 'Science', 'English']\nfor subject in subjects:\n    total = sum(student_grades[subject] for student_grades in students.values())\n    average = total / len(students)\n    print(f'{subject}: {average:.2f}')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "How do you access a value in a dictionary named 'data' with key 'name'?",
+        "type": "multiple-choice",
+        "options": ["data.name", "data['name']", "data(name)", "data->name"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What method safely gets a value from a dictionary without causing an error if the key doesn't exist?",
+        "type": "multiple-choice",
+        "options": ["dict.safe()", "dict.get()", "dict.find()", "dict.check()"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which method returns all key-value pairs as tuples?",
+        "type": "multiple-choice",
+        "options": ["dict.keys()", "dict.values()", "dict.items()", "dict.pairs()"],
+        "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "id": "python-oop-basics",
+    "title": "Object-Oriented Programming Basics",
+    "description": "Learn to create classes and objects to organize and structure your code.",
+    "category": "Object-Oriented Programming",
+    "difficulty": "advanced",
+    "estimatedTime": 45,
+    "xpReward": 80,
+    "prerequisites": ["python-dictionaries"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What is Object-Oriented Programming?",
+        "content": "Object-Oriented Programming (OOP) is a programming paradigm that organizes code around objects and classes. A class is a blueprint for creating objects, and objects are instances of classes. OOP helps create more maintainable, reusable, and organized code through encapsulation, inheritance, and polymorphism."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating Classes and Objects",
+        "content": "Define classes with the 'class' keyword and create objects (instances):",
+        "code": "# Define a simple class\nclass Person:\n    def __init__(self, name, age):\n        self.name = name  # Instance attribute\n        self.age = age\n    \n    def introduce(self):  # Instance method\n        return f'Hi, I am {self.name}, {self.age} years old'\n    \n    def have_birthday(self):\n        self.age += 1\n        return f'{self.name} is now {self.age} years old'\n\n# Create objects (instances)\nperson1 = Person('Alice', 25)\nperson2 = Person('Bob', 30)\n\nprint(person1.introduce())\nprint(person2.have_birthday())",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Class Attributes and Methods",
+        "content": "Classes can have attributes and methods shared by all instances:",
+        "code": "class BankAccount:\n    # Class attribute (shared by all instances)\n    bank_name = 'PyBank'\n    total_accounts = 0\n    \n    def __init__(self, owner, balance=0):\n        self.owner = owner  # Instance attribute\n        self.balance = balance\n        BankAccount.total_accounts += 1  # Update class attribute\n        self.account_number = BankAccount.total_accounts\n    \n    def deposit(self, amount):\n        if amount > 0:\n            self.balance += amount\n            return f'Deposited ${amount}. New balance: ${self.balance}'\n        return 'Invalid deposit amount'\n    \n    def withdraw(self, amount):\n        if 0 < amount <= self.balance:\n            self.balance -= amount\n            return f'Withdrew ${amount}. New balance: ${self.balance}'\n        return 'Insufficient funds or invalid amount'\n    \n    @classmethod\n    def get_total_accounts(cls):\n        return f'Total accounts: {cls.total_accounts}'\n\n# Create accounts\naccount1 = BankAccount('Alice', 1000)\naccount2 = BankAccount('Bob', 500)\n\nprint(account1.deposit(200))\nprint(BankAccount.get_total_accounts())",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Inheritance and Method Overriding",
+        "content": "Create specialized classes that inherit from base classes:",
+        "code": "# Base class\nclass Vehicle:\n    def __init__(self, brand, model, year):\n        self.brand = brand\n        self.model = model\n        self.year = year\n    \n    def start(self):\n        return f'{self.brand} {self.model} is starting...'\n    \n    def stop(self):\n        return f'{self.brand} {self.model} has stopped.'\n\n# Derived class (inherits from Vehicle)\nclass Car(Vehicle):\n    def __init__(self, brand, model, year, doors):\n        super().__init__(brand, model, year)  # Call parent constructor\n        self.doors = doors\n    \n    def honk(self):\n        return 'Beep beep!'\n    \n    # Override parent method\n    def start(self):\n        return f'{self.brand} {self.model} car is starting with a roar!'\n\nclass Motorcycle(Vehicle):\n    def __init__(self, brand, model, year, engine_size):\n        super().__init__(brand, model, year)\n        self.engine_size = engine_size\n    \n    def rev_engine(self):\n        return 'Vroom vroom!'\n\n# Create instances\nmy_car = Car('Toyota', 'Camry', 2022, 4)\nmy_bike = Motorcycle('Harley', 'Sportster', 2021, 883)\n\nprint(my_car.start())  # Uses overridden method\nprint(my_bike.start())  # Uses inherited method\nprint(my_car.honk())",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Rectangle Class",
+        "description": "Create a Rectangle class with width, height, and methods to calculate area and perimeter.",
+        "starterCode": "# Create Rectangle class\nclass Rectangle:\n    def __init__(self, width, height):\n        # Your code here\n        pass\n    \n    def area(self):\n        # Your code here\n        pass\n    \n    def perimeter(self):\n        # Your code here\n        pass\n\n# Test the class\nrect = Rectangle(5, 3)\n",
+        "expectedOutput": "Area: 15\nPerimeter: 16",
+        "solution": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n    \n    def area(self):\n        return self.width * self.height\n    \n    def perimeter(self):\n        return 2 * (self.width + self.height)\n\nrect = Rectangle(5, 3)\nprint(f'Area: {rect.area()}')\nprint(f'Perimeter: {rect.perimeter()}')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Library Book System",
+        "description": "Create a Book class and Library class to manage a collection of books.",
+        "starterCode": "# Book and Library management system\nclass Book:\n    def __init__(self, title, author, isbn):\n        # Your code here\n        pass\n\nclass Library:\n    def __init__(self):\n        # Your code here\n        pass\n    \n    def add_book(self, book):\n        # Your code here\n        pass\n    \n    def find_book(self, title):\n        # Your code here\n        pass\n\n# Test the system\nlib = Library()\nbook1 = Book('1984', 'George Orwell', '123456789')\n",
+        "expectedOutput": "Added: 1984 by George Orwell\nFound: 1984 by George Orwell (ISBN: 123456789)\nTotal books: 1",
+        "solution": "class Book:\n    def __init__(self, title, author, isbn):\n        self.title = title\n        self.author = author\n        self.isbn = isbn\n    \n    def __str__(self):\n        return f'{self.title} by {self.author} (ISBN: {self.isbn})'\n\nclass Library:\n    def __init__(self):\n        self.books = []\n    \n    def add_book(self, book):\n        self.books.append(book)\n        return f'Added: {book.title} by {book.author}'\n    \n    def find_book(self, title):\n        for book in self.books:\n            if book.title.lower() == title.lower():\n                return f'Found: {book}'\n        return 'Book not found'\n    \n    def total_books(self):\n        return len(self.books)\n\nlib = Library()\nbook1 = Book('1984', 'George Orwell', '123456789')\nprint(lib.add_book(book1))\nprint(lib.find_book('1984'))\nprint(f'Total books: {lib.total_books()}')"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Employee Management System",
+        "description": "Create an inheritance hierarchy with Employee base class and specialized Manager and Developer classes.",
+        "starterCode": "# Employee management system with inheritance\nclass Employee:\n    def __init__(self, name, employee_id, salary):\n        # Your code here\n        pass\n\nclass Manager(Employee):\n    def __init__(self, name, employee_id, salary, department):\n        # Your code here\n        pass\n\nclass Developer(Employee):\n    def __init__(self, name, employee_id, salary, programming_language):\n        # Your code here\n        pass\n\n# Test the system\nmanager = Manager('Alice', 'M001', 75000, 'Engineering')\ndeveloper = Developer('Bob', 'D001', 65000, 'Python')\n",
+        "expectedOutput": "Manager: Alice (M001) - $75000 - Engineering Department\nDeveloper: Bob (D001) - $65000 - Python Specialist\nAlice's annual bonus: $7500\nBob's coding skill: Expert in Python",
+        "solution": "class Employee:\n    def __init__(self, name, employee_id, salary):\n        self.name = name\n        self.employee_id = employee_id\n        self.salary = salary\n    \n    def get_info(self):\n        return f'{self.name} ({self.employee_id}) - ${self.salary}'\n    \n    def calculate_bonus(self):\n        return self.salary * 0.05  # 5% bonus\n\nclass Manager(Employee):\n    def __init__(self, name, employee_id, salary, department):\n        super().__init__(name, employee_id, salary)\n        self.department = department\n    \n    def get_info(self):\n        return f'Manager: {super().get_info()} - {self.department} Department'\n    \n    def calculate_bonus(self):\n        return self.salary * 0.10  # 10% bonus for managers\n\nclass Developer(Employee):\n    def __init__(self, name, employee_id, salary, programming_language):\n        super().__init__(name, employee_id, salary)\n        self.programming_language = programming_language\n    \n    def get_info(self):\n        return f'Developer: {super().get_info()} - {self.programming_language} Specialist'\n    \n    def code_skill(self):\n        return f'Expert in {self.programming_language}'\n\nmanager = Manager('Alice', 'M001', 75000, 'Engineering')\ndeveloper = Developer('Bob', 'D001', 65000, 'Python')\n\nprint(manager.get_info())\nprint(developer.get_info())\nprint(f'{manager.name}\\'s annual bonus: ${manager.calculate_bonus():.0f}')\nprint(f'{developer.name}\\'s coding skill: {developer.code_skill()}')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What method is automatically called when creating a new object?",
+        "type": "multiple-choice",
+        "options": ["__create__", "__init__", "__new__", "__start__"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What keyword is used to inherit from a parent class?",
+        "type": "multiple-choice",
+        "options": ["extends", "inherits", "class ChildClass(ParentClass):", "implements"],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q3",
+        "question": "What is 'self' in Python class methods?",
+        "type": "multiple-choice",
+        "options": ["A keyword", "A reference to the current instance", "A built-in function", "A class attribute"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": "python-loops",
+    "title": "Loops and Iteration",
+    "description": "Master for and while loops to repeat code efficiently and handle collections.",
+    "category": "Control Flow",
+    "difficulty": "intermediate",
+    "estimatedTime": 25,
+    "xpReward": 50,
+    "prerequisites": ["python-variables"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Understanding Loops",
+        "content": "Loops allow you to repeat code multiple times without writing it repeatedly. Python has two main types: 'for' loops (when you know how many times to repeat or iterate over collections) and 'while' loops (when you repeat until a condition changes). Loops are essential for processing data, automating tasks, and creating interactive programs."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "For Loops with Range and Collections",
+        "content": "The most versatile way to repeat code:",
+        "code": "# Basic for loop with range\nfor i in range(5):\n    print(f'Count: {i}')\n\n# Range with start, stop, step\nfor num in range(2, 11, 2):\n    print(f'Even: {num}')\n\n# Iterate over lists\nfruits = ['apple', 'banana', 'orange']\nfor fruit in fruits:\n    print(f'I like {fruit}')\n\n# Enumerate for index and value\nfor index, fruit in enumerate(fruits):\n    print(f'{index}: {fruit}')",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "While Loops and Loop Control",
+        "content": "While loops and controlling loop execution:",
+        "code": "# Basic while loop\ncount = 0\nwhile count < 5:\n    print(f'Count: {count}')\n    count += 1\n\n# Break - exit loop early\nfor i in range(10):\n    if i == 5:\n        break\n    print(i)\nprint('Loop ended early')\n\n# Continue - skip current iteration\nfor i in range(5):\n    if i == 2:\n        continue\n    print(f'Processing: {i}')\n\n# Nested loops\nfor row in range(3):\n    for col in range(3):\n        print(f'({row},{col})', end=' ')\n    print()  # New line after each row",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Sum Calculator",
+        "description": "Use a loop to calculate the sum of numbers from 1 to 10.",
+        "starterCode": "# Calculate sum of numbers 1 to 10\ntotal = 0\n",
+        "expectedOutput": "Sum of 1 to 10: 55",
+        "solution": "total = 0\nfor i in range(1, 11):\n    total += i\nprint(f'Sum of 1 to 10: {total}')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Password Validator Loop",
+        "description": "Keep asking for a password until it meets requirements (at least 8 characters).",
+        "starterCode": "# Password validation loop\npasswords = ['123', 'short', 'validpassword123']\npassword_index = 0\n",
+        "expectedOutput": "Password too short, try again.\nPassword too short, try again.\nPassword accepted!",
+        "solution": "passwords = ['123', 'short', 'validpassword123']\npassword_index = 0\n\nwhile password_index < len(passwords):\n    password = passwords[password_index]\n    if len(password) >= 8:\n        print('Password accepted!')\n        break\n    else:\n        print('Password too short, try again.')\n    password_index += 1"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Pattern Generator",
+        "description": "Create a program that generates number patterns using nested loops.",
+        "starterCode": "# Generate number patterns\nrows = 4\n",
+        "expectedOutput": "1\n1 2\n1 2 3\n1 2 3 4",
+        "solution": "rows = 4\n\nfor i in range(1, rows + 1):\n    for j in range(1, i + 1):\n        print(j, end=' ')\n    print()  # New line after each row"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What does range(1, 6) generate?",
+        "type": "multiple-choice",
+        "options": ["[1, 2, 3, 4, 5, 6]", "[1, 2, 3, 4, 5]", "[0, 1, 2, 3, 4, 5]", "[2, 3, 4, 5, 6]"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What does the 'break' statement do?",
+        "type": "multiple-choice",
+        "options": ["Skips current iteration", "Exits the loop completely", "Pauses the loop", "Restarts the loop"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": "python-functions",
+    "title": "Functions and Code Organization",
+    "description": "Create reusable code blocks with functions, parameters, and return values.",
     "category": "Functions",
-    "difficulty": "beginner",
-    "estimatedTime": 12,
-    "xpReward": 40,
-    "prerequisites": ["python-variables-1"],
+    "difficulty": "intermediate",
+    "estimatedTime": 35,
+    "xpReward": 65,
+    "prerequisites": ["python-loops"],
     "steps": [
       {
         "id": "step-1",
         "type": "content",
-        "title": "What are Functions?",
-        "content": "Functions are reusable blocks of code that perform specific tasks. They help you organize your code and avoid repetition."
+        "title": "Why Functions Matter",
+        "content": "Functions are the building blocks of organized, maintainable code. They allow you to break complex problems into smaller, manageable pieces, avoid code repetition, and create reusable components. Functions make your code more readable, testable, and easier to debug."
       },
       {
         "id": "step-2",
         "type": "code",
-        "title": "Creating Functions",
-        "content": "Here's how to define and use a function:",
-        "code": "def greet(name):\n    return f'Hello, {name}!'\n\n# Call the function\nmessage = greet('Alice')\nprint(message)",
+        "title": "Creating and Calling Functions",
+        "content": "Basic function syntax and usage:",
+        "code": "# Simple function\ndef greet():\n    print('Hello, World!')\n\n# Function with parameters\ndef greet_person(name, age=25):\n    return f'Hello {name}, you are {age} years old'\n\n# Function with multiple return values\ndef calculate_stats(numbers):\n    total = sum(numbers)\n    average = total / len(numbers)\n    return total, average\n\n# Call functions\ngreet()\nmessage = greet_person('Alice')\nprint(message)\n\ntotal, avg = calculate_stats([1, 2, 3, 4, 5])\nprint(f'Total: {total}, Average: {avg}')",
         "language": "python"
       },
       {
         "id": "step-3",
-        "type": "exercise",
-        "title": "Create Your First Function",
-        "exercise": {
-          "instructions": "Create a function called 'add_numbers' that takes two parameters and returns their sum",
-          "startingCode": "# Define your function here\ndef add_numbers(a, b):\n    # Your code here\n    pass",
-          "solution": "def add_numbers(a, b):\n    return a + b",
-          "testCases": [
-            {
-              "input": "print(add_numbers(5, 3))",
-              "expectedOutput": "8"
-            }
-          ]
-        }
+        "type": "code",
+        "title": "Advanced Function Features",
+        "content": "Variable arguments, keyword arguments, and lambda functions:",
+        "code": "# Variable arguments\ndef sum_all(*numbers):\n    return sum(numbers)\n\n# Keyword arguments\ndef create_profile(**kwargs):\n    profile = {}\n    for key, value in kwargs.items():\n        profile[key] = value\n    return profile\n\n# Lambda functions (anonymous functions)\nsquare = lambda x: x ** 2\nnumbers = [1, 2, 3, 4, 5]\nsquared = list(map(square, numbers))\n\n# Function as argument\ndef apply_operation(numbers, operation):\n    return [operation(x) for x in numbers]\n\nprint(sum_all(1, 2, 3, 4, 5))\nprint(create_profile(name='Alice', age=25, city='NYC'))\nprint(squared)\nprint(apply_operation([1, 2, 3], lambda x: x * 2))",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Temperature Converter",
+        "description": "Create functions to convert between Celsius and Fahrenheit.",
+        "starterCode": "# Temperature conversion functions\ndef celsius_to_fahrenheit(celsius):\n    # Your code here\n    pass\n\ndef fahrenheit_to_celsius(fahrenheit):\n    # Your code here\n    pass\n\n# Test\ntemp_c = 25\ntemp_f = 77\n",
+        "expectedOutput": "25°C = 77.0°F\n77°F = 25.0°C",
+        "solution": "def celsius_to_fahrenheit(celsius):\n    return (celsius * 9/5) + 32\n\ndef fahrenheit_to_celsius(fahrenheit):\n    return (fahrenheit - 32) * 5/9\n\ntemp_c = 25\ntemp_f = 77\n\nprint(f'{temp_c}°C = {celsius_to_fahrenheit(temp_c)}°F')\nprint(f'{temp_f}°F = {fahrenheit_to_celsius(temp_f)}°C')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Grade Calculator",
+        "description": "Create a function that calculates letter grades with multiple scoring criteria.",
+        "starterCode": "# Grade calculation system\ndef calculate_grade(homework, quizzes, midterm, final):\n    # Weights: homework 25%, quizzes 25%, midterm 25%, final 25%\n    pass\n\ndef get_letter_grade(percentage):\n    # A: 90+, B: 80-89, C: 70-79, D: 60-69, F: <60\n    pass\n\n# Test\nstudent_scores = (85, 90, 78, 92)\n",
+        "expectedOutput": "Final Grade: 86.25%\nLetter Grade: B",
+        "solution": "def calculate_grade(homework, quizzes, midterm, final):\n    weights = [0.25, 0.25, 0.25, 0.25]\n    scores = [homework, quizzes, midterm, final]\n    total = sum(score * weight for score, weight in zip(scores, weights))\n    return total\n\ndef get_letter_grade(percentage):\n    if percentage >= 90:\n        return 'A'\n    elif percentage >= 80:\n        return 'B'\n    elif percentage >= 70:\n        return 'C'\n    elif percentage >= 60:\n        return 'D'\n    else:\n        return 'F'\n\nstudent_scores = (85, 90, 78, 92)\nfinal_grade = calculate_grade(*student_scores)\nletter = get_letter_grade(final_grade)\n\nprint(f'Final Grade: {final_grade}%')\nprint(f'Letter Grade: {letter}')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What keyword defines a function in Python?",
+        "type": "multiple-choice",
+        "options": ["function", "def", "define", "func"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What does *args allow in a function?",
+        "type": "multiple-choice",
+        "options": ["Multiple keyword arguments", "Variable number of positional arguments", "Default arguments", "Return multiple values"],
+        "correctAnswer": 1
       }
     ]
   },
   {
-    "id": "python-loops-1",
-    "title": "For Loops",
-    "description": "Learn to repeat code efficiently",
-    "category": "Loops",
-    "difficulty": "beginner",
-    "estimatedTime": 10,
-    "xpReward": 35,
-    "prerequisites": ["python-variables-1"],
+    "id": "python-file-handling",
+    "title": "File Input and Output",
+    "description": "Learn to read from and write to files for data persistence and processing.",
+    "category": "File Operations",
+    "difficulty": "advanced",
+    "estimatedTime": 40,
+    "xpReward": 70,
+    "prerequisites": ["python-functions"],
     "steps": [
       {
         "id": "step-1",
         "type": "content",
-        "title": "What are Loops?",
-        "content": "Loops allow you to repeat code multiple times. This is useful when you need to perform the same action on multiple items."
+        "title": "Why File Handling Matters",
+        "content": "File handling allows your programs to persist data beyond program execution, process large datasets, create logs, read configuration files, and interact with external data sources. It's essential for building real-world applications that need to store and retrieve information."
       },
       {
         "id": "step-2",
         "type": "code",
-        "title": "For Loop Basics",
-        "content": "Here's a simple for loop that prints numbers:",
-        "code": "for i in range(5):\n    print(f'Number: {i}')\n\n# Loop through a list\nfruits = ['apple', 'banana', 'orange']\nfor fruit in fruits:\n    print(f'I like {fruit}')",
+        "title": "Reading and Writing Files",
+        "content": "Basic file operations using context managers:",
+        "code": "# Writing to a file\nwith open('example.txt', 'w') as file:\n    file.write('Hello, World!\\n')\n    file.write('This is a Python file handling example.\\n')\n    file.writelines(['Line 3\\n', 'Line 4\\n'])\n\n# Reading from a file\nwith open('example.txt', 'r') as file:\n    content = file.read()\n    print('Full content:')\n    print(content)\n\n# Reading line by line\nwith open('example.txt', 'r') as file:\n    print('Line by line:')\n    for line_number, line in enumerate(file, 1):\n        print(f'{line_number}: {line.strip()}')",
         "language": "python"
       },
       {
         "id": "step-3",
-        "type": "exercise",
-        "title": "Practice with Loops",
-        "exercise": {
-          "instructions": "Write a for loop that prints the numbers from 1 to 5",
-          "startingCode": "# Write your loop here\n",
-          "solution": "for i in range(1, 6):\n    print(i)",
-          "testCases": [
-            {
-              "input": "",
-              "expectedOutput": "1\n2\n3\n4\n5"
-            }
-          ]
-        }
+        "type": "code",
+        "title": "Working with CSV and JSON Files",
+        "content": "Handle structured data formats:",
+        "code": "import json\nimport csv\nfrom io import StringIO\n\n# Working with JSON\ndata = {\n    'students': [\n        {'name': 'Alice', 'grade': 85},\n        {'name': 'Bob', 'grade': 92}\n    ]\n}\n\n# Write JSON\nwith open('students.json', 'w') as file:\n    json.dump(data, file, indent=2)\n\n# Read JSON\nwith open('students.json', 'r') as file:\n    loaded_data = json.load(file)\n    print('JSON data:', loaded_data)\n\n# Working with CSV (simulated)\ncsv_content = 'name,age,city\\nAlice,25,NYC\\nBob,30,LA'\ncsv_file = StringIO(csv_content)\n\nreader = csv.DictReader(csv_file)\nprint('CSV data:')\nfor row in reader:\n    print(f'{row[\"name\"]} is {row[\"age\"]} years old from {row[\"city\"]}')",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Simple Log Writer",
+        "description": "Create a function that writes log messages to a file with timestamps.",
+        "starterCode": "# Log writing function\nimport datetime\n\ndef write_log(message, log_file='app.log'):\n    # Your code here\n    pass\n\n# Test\nwrite_log('Application started')\nwrite_log('User logged in')\n",
+        "expectedOutput": "Log written to app.log\nLog written to app.log",
+        "solution": "import datetime\n\ndef write_log(message, log_file='app.log'):\n    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n    log_entry = f'{timestamp} - {message}\\n'\n    \n    with open(log_file, 'a') as file:\n        file.write(log_entry)\n    \n    return f'Log written to {log_file}'\n\nprint(write_log('Application started'))\nprint(write_log('User logged in'))"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Student Grade Manager",
+        "description": "Create a system to save and load student grades from a JSON file.",
+        "starterCode": "# Student grade management\nimport json\n\ndef save_grades(students, filename='grades.json'):\n    # Your code here\n    pass\n\ndef load_grades(filename='grades.json'):\n    # Your code here\n    pass\n\n# Test data\nstudents = {\n    'Alice': {'math': 85, 'science': 92},\n    'Bob': {'math': 78, 'science': 88}\n}\n",
+        "expectedOutput": "Grades saved successfully\nLoaded grades: {'Alice': {'math': 85, 'science': 92}, 'Bob': {'math': 78, 'science': 88}}",
+        "solution": "import json\n\ndef save_grades(students, filename='grades.json'):\n    try:\n        with open(filename, 'w') as file:\n            json.dump(students, file, indent=2)\n        return 'Grades saved successfully'\n    except Exception as e:\n        return f'Error saving grades: {e}'\n\ndef load_grades(filename='grades.json'):\n    try:\n        with open(filename, 'r') as file:\n            return json.load(file)\n    except FileNotFoundError:\n        return {}\n    except Exception as e:\n        return f'Error loading grades: {e}'\n\nstudents = {\n    'Alice': {'math': 85, 'science': 92},\n    'Bob': {'math': 78, 'science': 88}\n}\n\nprint(save_grades(students))\nloaded = load_grades()\nprint(f'Loaded grades: {loaded}')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What is the recommended way to open files in Python?",
+        "type": "multiple-choice",
+        "options": ["open('file.txt')", "with open('file.txt') as f:", "file = open('file.txt')", "File.open('file.txt')"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "Which mode opens a file for writing (overwrites existing content)?",
+        "type": "multiple-choice",
+        "options": ["'r'", "'w'", "'a'", "'x'"],
+        "correctAnswer": 1
       }
     ]
   },
   {
-    "id": "python-conditionals-1",
-    "title": "If Statements",
-    "description": "Make decisions in your code",
-    "category": "Conditionals",
-    "difficulty": "beginner",
-    "estimatedTime": 8,
-    "xpReward": 30,
-    "prerequisites": ["python-variables-1"],
+    "id": "python-error-handling",
+    "title": "Exception Handling and Debugging",
+    "description": "Learn to handle errors gracefully and debug your Python programs effectively.",
+    "category": "Error Handling",
+    "difficulty": "advanced",
+    "estimatedTime": 35,
+    "xpReward": 75,
+    "prerequisites": ["python-file-handling"],
     "steps": [
       {
         "id": "step-1",
         "type": "content",
-        "title": "Making Decisions",
-        "content": "Conditional statements allow your program to make decisions based on different conditions."
+        "title": "Understanding Exceptions",
+        "content": "Exceptions are events that occur during program execution that disrupt normal flow. Python uses try-except blocks to handle exceptions gracefully, preventing crashes and providing meaningful error messages to users. Good exception handling makes your programs robust and user-friendly."
       },
       {
         "id": "step-2",
         "type": "code",
-        "title": "If, Elif, Else",
-        "content": "Here's how to use conditional statements:",
-        "code": "age = 18\n\nif age >= 18:\n    print('You are an adult')\nelif age >= 13:\n    print('You are a teenager')\nelse:\n    print('You are a child')",
+        "title": "Basic Exception Handling",
+        "content": "Using try-except blocks to handle errors:",
+        "code": "# Basic exception handling\ntry:\n    number = int(input('Enter a number: '))\n    result = 10 / number\n    print(f'Result: {result}')\nexcept ValueError:\n    print('Invalid input! Please enter a valid number.')\nexcept ZeroDivisionError:\n    print('Cannot divide by zero!')\nexcept Exception as e:\n    print(f'An unexpected error occurred: {e}')\nelse:\n    print('Operation completed successfully!')\nfinally:\n    print('This always executes.')\n\n# Multiple exceptions in one block\ntry:\n    data = {'name': 'Alice'}\n    print(data['age'])  # KeyError\nexcept (KeyError, ValueError, TypeError) as e:\n    print(f'Error accessing data: {e}')",
         "language": "python"
       },
       {
         "id": "step-3",
-        "type": "exercise",
-        "title": "Temperature Check",
-        "exercise": {
-          "instructions": "Write an if statement that prints 'Hot' if temperature > 30, 'Warm' if between 20-30, 'Cool' if between 10-20, and 'Cold' if below 10",
-          "startingCode": "temperature = 25\n# Write your if statement here\n",
-          "solution": "if temperature > 30:\n    print('Hot')\nelif temperature >= 20:\n    print('Warm')\nelif temperature >= 10:\n    print('Cool')\nelse:\n    print('Cold')",
-          "testCases": [
-            {
-              "input": "",
-              "expectedOutput": "Warm"
-            }
-          ]
-        }
+        "type": "code",
+        "title": "Custom Exceptions and Advanced Handling",
+        "content": "Creating custom exceptions and advanced error handling patterns:",
+        "code": "# Custom exception classes\nclass ValidationError(Exception):\n    def __init__(self, message, error_code=None):\n        super().__init__(message)\n        self.error_code = error_code\n\nclass PasswordTooShortError(ValidationError):\n    pass\n\ndef validate_password(password):\n    if len(password) < 8:\n        raise PasswordTooShortError('Password must be at least 8 characters', 'PWD_001')\n    if not any(c.isupper() for c in password):\n        raise ValidationError('Password must contain uppercase letter', 'PWD_002')\n    return True\n\n# Using custom exceptions\npasswords = ['weak', 'NOUPPERCASE', 'ValidPass123']\n\nfor pwd in passwords:\n    try:\n        validate_password(pwd)\n        print(f'Password \"{pwd}\" is valid')\n    except PasswordTooShortError as e:\n        print(f'Short password error: {e} (Code: {e.error_code})')\n    except ValidationError as e:\n        print(f'Validation error: {e} (Code: {e.error_code})')",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Safe Calculator",
+        "description": "Create a calculator function that handles division by zero and invalid inputs.",
+        "starterCode": "# Safe calculator function\ndef safe_divide(a, b):\n    # Your code here\n    pass\n\n# Test cases\ntest_cases = [(10, 2), (10, 0), ('abc', 5), (10, 'def')]\n",
+        "expectedOutput": "10 / 2 = 5.0\nError: Cannot divide by zero\nError: Invalid input type\nError: Invalid input type",
+        "solution": "def safe_divide(a, b):\n    try:\n        result = a / b\n        return f'{a} / {b} = {result}'\n    except ZeroDivisionError:\n        return 'Error: Cannot divide by zero'\n    except TypeError:\n        return 'Error: Invalid input type'\n    except Exception as e:\n        return f'Error: {e}'\n\ntest_cases = [(10, 2), (10, 0), ('abc', 5), (10, 'def')]\n\nfor a, b in test_cases:\n    print(safe_divide(a, b))"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "File Reader with Error Handling",
+        "description": "Create a robust file reading function that handles various file-related errors.",
+        "starterCode": "# Robust file reader\ndef read_file_safely(filename):\n    # Handle FileNotFoundError, PermissionError, etc.\n    pass\n\n# Test files\nfiles = ['existing.txt', 'nonexistent.txt', '/restricted/file.txt']\n",
+        "expectedOutput": "Successfully read existing.txt\nError: File 'nonexistent.txt' not found\nError: Permission denied for '/restricted/file.txt'",
+        "solution": "def read_file_safely(filename):\n    try:\n        with open(filename, 'r') as file:\n            content = file.read()\n            return f'Successfully read {filename}'\n    except FileNotFoundError:\n        return f'Error: File \\'{filename}\\' not found'\n    except PermissionError:\n        return f'Error: Permission denied for \\'{filename}\\''\n    except IsADirectoryError:\n        return f'Error: \\'{filename}\\' is a directory, not a file'\n    except Exception as e:\n        return f'Error reading \\'{filename}\\': {e}'\n\nfiles = ['existing.txt', 'nonexistent.txt', '/restricted/file.txt']\n\n# Create a test file first\ntry:\n    with open('existing.txt', 'w') as f:\n        f.write('Test content')\nexcept:\n    pass\n\nfor filename in files:\n    print(read_file_safely(filename))"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Which keyword is used to handle exceptions in Python?",
+        "type": "multiple-choice",
+        "options": ["catch", "except", "handle", "error"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What block always executes regardless of whether an exception occurs?",
+        "type": "multiple-choice",
+        "options": ["else", "except", "finally", "always"],
+        "correctAnswer": 2
       }
     ]
   },
   {
-    "id": "python-lists-1",
-    "title": "Working with Lists",
-    "description": "Store multiple items in a single variable",
-    "category": "Lists",
-    "difficulty": "beginner",
-    "estimatedTime": 12,
-    "xpReward": 40,
-    "prerequisites": ["python-variables-1"],
+    "id": "python-modules",
+    "title": "Modules and Packages",
+    "description": "Organize code with modules, import libraries, and create reusable packages.",
+    "category": "Code Organization",
+    "difficulty": "advanced",
+    "estimatedTime": 30,
+    "xpReward": 65,
+    "prerequisites": ["python-error-handling"],
     "steps": [
       {
         "id": "step-1",
         "type": "content",
-        "title": "What are Lists?",
-        "content": "Lists are collections of items stored in a single variable. They can hold multiple data types and are very flexible."
+        "title": "Understanding Modules",
+        "content": "Modules are Python files containing definitions and statements that can be imported and used in other programs. They help organize code, avoid naming conflicts, and promote code reuse. Python has a rich standard library of built-in modules, and you can also create your own modules."
       },
       {
         "id": "step-2",
         "type": "code",
-        "title": "Creating and Using Lists",
-        "content": "Here's how to work with lists:",
-        "code": "# Create a list\nfruits = ['apple', 'banana', 'orange']\n\n# Access items\nprint(fruits[0])  # First item\nprint(fruits[-1]) # Last item\n\n# Add items\nfruits.append('grape')\nprint(fruits)",
+        "title": "Importing and Using Modules",
+        "content": "Different ways to import and use modules:",
+        "code": "# Standard library modules\nimport math\nimport datetime\nimport random\nfrom collections import Counter, defaultdict\nimport os\n\n# Using imported modules\nprint(f'Pi: {math.pi}')\nprint(f'Square root of 16: {math.sqrt(16)}')\n\n# Current date and time\nnow = datetime.datetime.now()\nprint(f'Current time: {now.strftime(\"%Y-%m-%d %H:%M:%S\")}')\n\n# Random numbers\nprint(f'Random number: {random.randint(1, 100)}')\nprint(f'Random choice: {random.choice([\"apple\", \"banana\", \"cherry\"])}')\n\n# Collections\nwords = ['apple', 'banana', 'apple', 'cherry', 'banana', 'apple']\nword_count = Counter(words)\nprint(f'Word frequency: {word_count}')\n\n# Environment and system\nprint(f'Current directory: {os.getcwd()}')\nprint(f'Environment PATH: {os.environ.get(\"PATH\", \"Not found\")[:50]}...')",
         "language": "python"
       },
       {
         "id": "step-3",
-        "type": "exercise",
-        "title": "List Operations",
-        "exercise": {
-          "instructions": "Create a list called 'numbers' with values [1, 2, 3], then add the number 4 to it",
-          "startingCode": "# Create your list here\n",
-          "solution": "numbers = [1, 2, 3]\nnumbers.append(4)\nprint(numbers)",
-          "testCases": [
-            {
-              "input": "",
-              "expectedOutput": "[1, 2, 3, 4]"
-            }
-          ]
-        }
+        "type": "code",
+        "title": "Creating Custom Modules",
+        "content": "How to create and organize your own modules:",
+        "code": "# Example of a custom module (math_utils.py)\n# This would typically be in a separate file\n\ndef calculate_area(shape, **kwargs):\n    \"\"\"Calculate area of different shapes.\"\"\"\n    if shape == 'rectangle':\n        return kwargs['length'] * kwargs['width']\n    elif shape == 'circle':\n        import math\n        return math.pi * kwargs['radius'] ** 2\n    elif shape == 'triangle':\n        return 0.5 * kwargs['base'] * kwargs['height']\n    else:\n        raise ValueError(f'Unknown shape: {shape}')\n\ndef factorial(n):\n    \"\"\"Calculate factorial of n.\"\"\"\n    if n < 0:\n        raise ValueError('Factorial not defined for negative numbers')\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)\n\nclass Calculator:\n    \"\"\"Simple calculator class.\"\"\"\n    \n    def __init__(self):\n        self.history = []\n    \n    def add(self, a, b):\n        result = a + b\n        self.history.append(f'{a} + {b} = {result}')\n        return result\n    \n    def get_history(self):\n        return self.history\n\n# If this were imported, you could use:\n# from math_utils import calculate_area, Calculator\n# Or: import math_utils\n\n# Demonstrating usage\nprint(f'Rectangle area: {calculate_area(\"rectangle\", length=5, width=3)}')\nprint(f'Circle area: {calculate_area(\"circle\", radius=2):.2f}')\nprint(f'Factorial of 5: {factorial(5)}')\n\ncalc = Calculator()\nprint(f'5 + 3 = {calc.add(5, 3)}')\nprint(f'History: {calc.get_history()}')",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Date and Time Utilities",
+        "description": "Use the datetime module to create date formatting functions.",
+        "starterCode": "# Date and time utilities\nimport datetime\n\ndef format_date(date_obj):\n    # Format as 'January 15, 2024'\n    pass\n\ndef days_until_birthday(birthday_str):\n    # Calculate days until next birthday\n    # birthday_str format: 'MM-DD' (e.g., '03-15')\n    pass\n\n# Test\ntoday = datetime.date.today()\nbirthday = '03-15'\n",
+        "expectedOutput": "Today: January 15, 2024\nDays until birthday: 59",
+        "solution": "import datetime\n\ndef format_date(date_obj):\n    return date_obj.strftime('%B %d, %Y')\n\ndef days_until_birthday(birthday_str):\n    today = datetime.date.today()\n    month, day = map(int, birthday_str.split('-'))\n    \n    # This year's birthday\n    this_year_birthday = datetime.date(today.year, month, day)\n    \n    # If birthday has passed this year, calculate for next year\n    if this_year_birthday < today:\n        next_birthday = datetime.date(today.year + 1, month, day)\n    else:\n        next_birthday = this_year_birthday\n    \n    delta = next_birthday - today\n    return delta.days\n\ntoday = datetime.date.today()\nbirthday = '03-15'\n\nprint(f'Today: {format_date(today)}')\nprint(f'Days until birthday: {days_until_birthday(birthday)}')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Statistics Module",
+        "description": "Create a statistics module with functions for mean, median, and mode.",
+        "starterCode": "# Statistics module functions\nfrom collections import Counter\n\ndef calculate_mean(numbers):\n    # Calculate arithmetic mean\n    pass\n\ndef calculate_median(numbers):\n    # Calculate median value\n    pass\n\ndef calculate_mode(numbers):\n    # Calculate mode (most frequent value)\n    pass\n\ndef get_statistics(numbers):\n    # Return all statistics as a dictionary\n    pass\n\n# Test data\ndata = [1, 2, 2, 3, 4, 4, 4, 5]\n",
+        "expectedOutput": "Statistics for [1, 2, 2, 3, 4, 4, 4, 5]:\nMean: 3.125\nMedian: 3.5\nMode: 4\nFull stats: {'mean': 3.125, 'median': 3.5, 'mode': 4, 'count': 8}",
+        "solution": "from collections import Counter\n\ndef calculate_mean(numbers):\n    return sum(numbers) / len(numbers)\n\ndef calculate_median(numbers):\n    sorted_nums = sorted(numbers)\n    n = len(sorted_nums)\n    if n % 2 == 0:\n        return (sorted_nums[n//2 - 1] + sorted_nums[n//2]) / 2\n    else:\n        return sorted_nums[n//2]\n\ndef calculate_mode(numbers):\n    counter = Counter(numbers)\n    max_count = max(counter.values())\n    modes = [num for num, count in counter.items() if count == max_count]\n    return modes[0] if len(modes) == 1 else modes\n\ndef get_statistics(numbers):\n    return {\n        'mean': calculate_mean(numbers),\n        'median': calculate_median(numbers),\n        'mode': calculate_mode(numbers),\n        'count': len(numbers)\n    }\n\ndata = [1, 2, 2, 3, 4, 4, 4, 5]\n\nprint(f'Statistics for {data}:')\nprint(f'Mean: {calculate_mean(data)}')\nprint(f'Median: {calculate_median(data)}')\nprint(f'Mode: {calculate_mode(data)}')\nprint(f'Full stats: {get_statistics(data)}')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "How do you import only specific functions from a module?",
+        "type": "multiple-choice",
+        "options": ["import module.function", "from module import function", "import function from module", "module.import(function)"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What is the purpose of the __name__ == '__main__' check?",
+        "type": "multiple-choice",
+        "options": ["To check if the file is being run directly", "To import modules", "To define functions", "To handle errors"],
+        "correctAnswer": 0
       }
     ]
   }

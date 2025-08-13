@@ -1,0 +1,463 @@
+[
+  {
+    "id": "python-intro",
+    "title": "Introduction to Python",
+    "description": "Welcome to Python programming! Learn what Python is and why it's popular.",
+    "category": "Basics",
+    "difficulty": "beginner",
+    "estimatedTime": 10,
+    "xpReward": 30,
+    "prerequisites": [],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What is Python?",
+        "content": "Python is a high-level, interpreted programming language created by Guido van Rossum in 1991. It's designed with readability in mind, using English keywords and simple syntax. Python is used in web development, data science, artificial intelligence, automation, and scientific computing."
+      },
+      {
+        "id": "step-2",
+        "type": "content",
+        "title": "Why Choose Python?",
+        "content": "• Easy to learn and read - Python's syntax is clean and intuitive\n• Versatile - Used in many fields from web apps to AI\n• Large community - Millions of developers worldwide\n• Rich libraries - Thousands of pre-built packages available\n• Cross-platform - Runs on Windows, Mac, Linux"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Your First Python Program",
+        "content": "The traditional first program in any language prints 'Hello, World!' to the screen:",
+        "code": "print('Hello, World!')\nprint('Welcome to Python programming!')\nprint('Python is', 2024 - 1991, 'years old')",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Personal Greeting",
+        "description": "Create a program that prints a greeting with your name.",
+        "starterCode": "# Print a greeting with your name\n",
+        "expectedOutput": "Hello, my name is [Your Name]",
+        "solution": "print('Hello, my name is Alice')"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium", 
+        "title": "Python Facts",
+        "description": "Print three interesting facts about Python using multiple print statements.",
+        "starterCode": "# Print three facts about Python\n",
+        "expectedOutput": "Fact 1: Python was named after Monty Python\nFact 2: Python is open source\nFact 3: Python is interpreted, not compiled",
+        "solution": "print('Fact 1: Python was named after Monty Python')\nprint('Fact 2: Python is open source')\nprint('Fact 3: Python is interpreted, not compiled')"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Dynamic Information",
+        "description": "Create a program that displays the current year and calculates Python's age dynamically.",
+        "starterCode": "# Calculate and display Python's age\n# Python was created in 1991\n",
+        "expectedOutput": "Current year: 2024\nPython's age: 33 years",
+        "solution": "import datetime\ncurrent_year = datetime.datetime.now().year\npython_birth_year = 1991\nage = current_year - python_birth_year\nprint(f'Current year: {current_year}')\nprint(f'Python\\'s age: {age} years')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Who created the Python programming language?",
+        "type": "multiple-choice",
+        "options": ["Dennis Ritchie", "Guido van Rossum", "James Gosling", "Bjarne Stroustrup"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2", 
+        "question": "Python was first released in which year?",
+        "type": "multiple-choice",
+        "options": ["1989", "1991", "1995", "2000"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which function is used to display output in Python?",
+        "type": "multiple-choice", 
+        "options": ["output()", "display()", "print()", "show()"],
+        "correctAnswer": 2
+      }
+    ]
+  }
+]
+  },
+
+  {
+    "id": "python-variables",
+    "title": "Variables and Data Types",
+    "description": "Learn to store and manipulate different types of data in Python.",
+    "category": "Basics",
+    "difficulty": "beginner",
+    "estimatedTime": 15,
+    "xpReward": 40,
+    "prerequisites": ["python-intro"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Understanding Variables",
+        "content": "A variable is a named storage location in memory that holds data. In Python, variables are created when you assign a value to them. Unlike other languages, you don't need to declare the variable type - Python automatically determines it based on the value assigned."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating Variables",
+        "content": "Here's how to create variables of different types:",
+        "code": "# String variable\nname = 'Alice'\nfull_name = \"Alice Johnson\"\n\n# Integer variable\nage = 25\nyear = 2024\n\n# Float variable\nheight = 5.6\ntemperature = 98.6\n\n# Boolean variable\nis_student = True\nhas_job = False\n\nprint(name, age, height, is_student)",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "content",
+        "title": "Python Data Types",
+        "content": "Python has several built-in data types:\n\n• str (String) - Text data: 'Hello'\n• int (Integer) - Whole numbers: 42\n• float - Decimal numbers: 3.14\n• bool (Boolean) - True or False\n• list - Ordered collection: [1, 2, 3]\n• dict (Dictionary) - Key-value pairs: {'key': 'value'}\n• tuple - Immutable sequence: (1, 2, 3)\n• set - Unique elements: {1, 2, 3}"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Checking Data Types",
+        "content": "Use the type() function to check what type of data a variable contains:",
+        "code": "name = 'Alice'\nage = 25\nheight = 5.6\nis_student = True\n\nprint(type(name))      # <class 'str'>\nprint(type(age))       # <class 'int'>\nprint(type(height))    # <class 'float'>\nprint(type(is_student)) # <class 'bool'>",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Personal Information",
+        "description": "Create variables to store your name, age, and favorite color, then print them.",
+        "starterCode": "# Create variables for personal information\n",
+        "expectedOutput": "Name: Alice\nAge: 25\nFavorite Color: Blue",
+        "solution": "name = 'Alice'\nage = 25\nfavorite_color = 'Blue'\n\nprint('Name:', name)\nprint('Age:', age)\nprint('Favorite Color:', favorite_color)"
+      },
+      {
+        "id": "medium-1", 
+        "difficulty": "Medium",
+        "title": "Variable Operations", 
+        "description": "Create numeric variables and perform basic calculations, storing results in new variables.",
+        "starterCode": "# Create variables for a rectangle's dimensions\nlength = 10\nwidth = 5\n# Calculate area and perimeter\n",
+        "expectedOutput": "Area: 50\nPerimeter: 30",
+        "solution": "length = 10\nwidth = 5\narea = length * width\nperimeter = 2 * (length + width)\n\nprint('Area:', area)\nprint('Perimeter:', perimeter)"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Type Conversion Challenge",
+        "description": "Create a program that takes string numbers, converts them to integers, performs calculations, and displays results.",
+        "starterCode": "# String numbers that need conversion\nnum1_str = '15'\nnum2_str = '25'\n# Convert to integers and calculate\n",
+        "expectedOutput": "Sum: 40\nProduct: 375\nAverage: 20.0",
+        "solution": "num1_str = '15'\nnum2_str = '25'\n\nnum1 = int(num1_str)\nnum2 = int(num2_str)\n\nsum_result = num1 + num2\nproduct = num1 * num2\naverage = sum_result / 2\n\nprint('Sum:', sum_result)\nprint('Product:', product)\nprint('Average:', average)"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Which of these is a valid variable name in Python?",
+        "type": "multiple-choice",
+        "options": ["2user", "user-name", "user_name", "user name"],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q2",
+        "question": "What data type is the value 3.14?",
+        "type": "multiple-choice",
+        "options": ["int", "float", "str", "bool"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which function tells you the data type of a variable?",
+        "type": "multiple-choice",
+        "options": ["typeof()", "type()", "datatype()", "kind()"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+
+  {
+    "id": "python-operators",
+    "title": "Python Operators",
+    "description": "Master arithmetic, comparison, and logical operators in Python.",
+    "category": "Basics",
+    "difficulty": "beginner",
+    "estimatedTime": 20,
+    "xpReward": 45,
+    "prerequisites": ["python-variables"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Types of Operators",
+        "content": "Python operators are special symbols that perform operations on variables and values. There are several types:\n\n• Arithmetic Operators - Mathematical operations\n• Comparison Operators - Compare values\n• Logical Operators - Boolean logic\n• Assignment Operators - Assign values\n• Membership Operators - Test membership\n• Identity Operators - Compare objects"
+      },
+      {
+        "id": "step-2", 
+        "type": "code",
+        "title": "Arithmetic Operators",
+        "content": "Arithmetic operators perform mathematical calculations:",
+        "code": "a = 10\nb = 3\n\nprint('Addition:', a + b)        # 13\nprint('Subtraction:', a - b)     # 7\nprint('Multiplication:', a * b)  # 30\nprint('Division:', a / b)        # 3.333...\nprint('Floor Division:', a // b) # 3\nprint('Modulus:', a % b)         # 1\nprint('Exponentiation:', a ** b) # 1000",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "code", 
+        "title": "Comparison Operators",
+        "content": "Comparison operators compare values and return True or False:",
+        "code": "x = 5\ny = 10\n\nprint('Equal:', x == y)           # False\nprint('Not equal:', x != y)       # True\nprint('Greater than:', x > y)     # False\nprint('Less than:', x < y)        # True\nprint('Greater or equal:', x >= y) # False\nprint('Less or equal:', x <= y)   # True",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Logical Operators",
+        "content": "Logical operators work with Boolean values:",
+        "code": "a = True\nb = False\nc = True\n\nprint('AND:', a and b)    # False\nprint('OR:', a or b)      # True  \nprint('NOT:', not a)      # False\n\n# Practical example\nage = 25\nhas_license = True\ncan_drive = age >= 18 and has_license\nprint('Can drive:', can_drive)  # True",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Basic Calculator",
+        "description": "Create a simple calculator that performs basic arithmetic on two numbers.",
+        "starterCode": "# Basic arithmetic operations\nnum1 = 12\nnum2 = 4\n",
+        "expectedOutput": "Addition: 16\nSubtraction: 8\nMultiplication: 48\nDivision: 3.0",
+        "solution": "num1 = 12\nnum2 = 4\n\nprint('Addition:', num1 + num2)\nprint('Subtraction:', num1 - num2)\nprint('Multiplication:', num1 * num2)\nprint('Division:', num1 / num2)"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Age Verification System", 
+        "description": "Create a program that checks if someone can vote, drive, and drink based on age.",
+        "starterCode": "# Age verification system\nage = 20\n",
+        "expectedOutput": "Can vote: True\nCan drive: True\nCan drink: False",
+        "solution": "age = 20\n\ncan_vote = age >= 18\ncan_drive = age >= 16\ncan_drink = age >= 21\n\nprint('Can vote:', can_vote)\nprint('Can drive:', can_drive)\nprint('Can drink:', can_drink)"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Grade Calculator",
+        "description": "Calculate final grade using weighted averages and determine pass/fail status.",
+        "starterCode": "# Grade calculation system\nhomework = 85\nquizzes = 78\nmidterm = 92\nfinal = 88\n# Weights: homework 20%, quizzes 20%, midterm 30%, final 30%\n",
+        "expectedOutput": "Final Grade: 85.6\nPassed: True\nGrade Level: B",
+        "solution": "homework = 85\nquizzes = 78\nmidterm = 92\nfinal = 88\n\nfinal_grade = (homework * 0.2) + (quizzes * 0.2) + (midterm * 0.3) + (final * 0.3)\npassed = final_grade >= 60\ngrade_level = 'A' if final_grade >= 90 else 'B' if final_grade >= 80 else 'C' if final_grade >= 70 else 'D' if final_grade >= 60 else 'F'\n\nprint('Final Grade:', final_grade)\nprint('Passed:', passed)\nprint('Grade Level:', grade_level)"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What does the // operator do in Python?",
+        "type": "multiple-choice",
+        "options": ["Regular division", "Floor division", "Modulus", "Exponentiation"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What is the result of: 5 > 3 and 2 < 1?",
+        "type": "multiple-choice",
+        "options": ["True", "False", "Error", "None"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which operator checks if two values are equal?",
+        "type": "multiple-choice",
+        "options": ["=", "==", "!=", "==="],
+        "correctAnswer": 1
+      }
+    ]
+  },
+
+  {
+    "id": "python-strings",
+    "title": "Working with Strings",
+    "description": "Learn string manipulation, formatting, and common string operations.",
+    "category": "Basics",
+    "difficulty": "beginner", 
+    "estimatedTime": 25,
+    "xpReward": 50,
+    "prerequisites": ["python-operators"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Understanding Strings",
+        "content": "Strings are sequences of characters enclosed in quotes. Python treats single quotes ('') and double quotes (\"\") the same way. Strings are immutable, meaning you cannot change individual characters after creation. Instead, you create new strings."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating and Accessing Strings", 
+        "content": "Different ways to create and work with strings:",
+        "code": "# Creating strings\nname = 'Alice'\nmessage = \"Hello World\"\nlong_text = '''This is a\nmulti-line\nstring'''\n\n# String indexing (starts at 0)\nfirst_char = name[0]    # 'A'\nlast_char = name[-1]    # 'e'\n\n# String slicing\nsubstring = name[1:4]   # 'lic'\n\nprint(name, first_char, substring)",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "String Methods",
+        "content": "Python provides many built-in string methods:",
+        "code": "text = 'Hello World Python'\n\nprint(text.upper())        # HELLO WORLD PYTHON\nprint(text.lower())        # hello world python\nprint(text.title())        # Hello World Python\nprint(text.replace('World', 'Universe'))  # Hello Universe Python\nprint(text.split())        # ['Hello', 'World', 'Python']\nprint(len(text))           # 18\nprint('Python' in text)    # True",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "String Formatting",
+        "content": "Modern Python string formatting techniques:",
+        "code": "name = 'Alice'\nage = 25\nscore = 95.5\n\n# f-strings (recommended)\nmessage = f'Hello {name}, you are {age} years old'\ndetails = f'Score: {score:.1f}%'\n\n# format() method\ntemplate = 'Name: {}, Age: {}, Score: {:.2f}'\nresult = template.format(name, age, score)\n\nprint(message)\nprint(details)\nprint(result)",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Name Formatter",
+        "description": "Create a program that formats a person's name properly (title case).",
+        "starterCode": "# Format names properly\nfirst_name = 'alice'\nlast_name = 'JOHNSON'\n",
+        "expectedOutput": "Full Name: Alice Johnson\nInitials: A.J.",
+        "solution": "first_name = 'alice'\nlast_name = 'JOHNSON'\n\nformatted_first = first_name.title()\nformatted_last = last_name.title()\nfull_name = f'{formatted_first} {formatted_last}'\ninitials = f'{formatted_first[0]}.{formatted_last[0]}.'\n\nprint('Full Name:', full_name)\nprint('Initials:', initials)"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Email Validator",
+        "description": "Check if an email address contains required components and format it properly.",
+        "starterCode": "# Email validation and formatting\nemail = '  ALICE.JOHNSON@GMAIL.COM  '\n",
+        "expectedOutput": "Clean Email: alice.johnson@gmail.com\nUsername: alice.johnson\nDomain: gmail.com\nValid: True",
+        "solution": "email = '  ALICE.JOHNSON@GMAIL.COM  '\n\nclean_email = email.strip().lower()\nhas_at = '@' in clean_email\nhas_dot = '.' in clean_email.split('@')[-1] if has_at else False\n\nif has_at:\n    username, domain = clean_email.split('@')\n    valid = has_at and has_dot and len(username) > 0 and len(domain) > 0\nelse:\n    username, domain = '', ''\n    valid = False\n\nprint('Clean Email:', clean_email)\nprint('Username:', username)\nprint('Domain:', domain)\nprint('Valid:', valid)"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Password Strength Checker",
+        "description": "Analyze a password and provide strength feedback based on multiple criteria.",
+        "starterCode": "# Password strength analysis\npassword = 'MySecure123!'\n",
+        "expectedOutput": "Password: MySecure123!\nLength: 12\nHas uppercase: True\nHas lowercase: True\nHas numbers: True\nHas special chars: True\nStrength: Strong",
+        "solution": "password = 'MySecure123!'\n\nlength = len(password)\nhas_upper = any(c.isupper() for c in password)\nhas_lower = any(c.islower() for c in password)\nhas_digit = any(c.isdigit() for c in password)\nhas_special = any(not c.isalnum() for c in password)\n\ncriteria_met = sum([length >= 8, has_upper, has_lower, has_digit, has_special])\n\nif criteria_met >= 4 and length >= 8:\n    strength = 'Strong'\nelif criteria_met >= 3:\n    strength = 'Medium'\nelse:\n    strength = 'Weak'\n\nprint('Password:', password)\nprint('Length:', length)\nprint('Has uppercase:', has_upper)\nprint('Has lowercase:', has_lower)\nprint('Has numbers:', has_digit)\nprint('Has special chars:', has_special)\nprint('Strength:', strength)"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "How do you access the last character of a string named 'text'?",
+        "type": "multiple-choice",
+        "options": ["text[last]", "text[-1]", "text[end]", "text[length-1]"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "Which method converts a string to lowercase?",
+        "type": "multiple-choice", 
+        "options": ["text.lowercase()", "text.lower()", "text.toLower()", "text.downcase()"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "What does f'Hello {name}' represent in Python?",
+        "type": "multiple-choice",
+        "options": ["Function call", "F-string formatting", "File operation", "Float conversion"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+
+  {
+    "id": "python-conditionals",
+    "title": "Conditional Statements",
+    "description": "Learn to make decisions in your code using if, elif, and else statements.",
+    "category": "Control Flow",
+    "difficulty": "beginner",
+    "estimatedTime": 20,
+    "xpReward": 45,
+    "prerequisites": ["python-strings"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Making Decisions",
+        "content": "Conditional statements allow your program to make decisions and execute different code based on conditions. Python uses if, elif (else if), and else statements to control program flow. The condition must evaluate to True or False."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Basic If Statements",
+        "content": "The simplest form of conditional logic:",
+        "code": "age = 18\ntemperature = 75\n\n# Simple if statement\nif age >= 18:\n    print('You can vote!')\n\n# If with else\nif temperature > 80:\n    print('It\\'s hot outside')\nelse:\n    print('It\\'s not too hot')\n\n# Multiple conditions\nif age >= 18 and temperature < 90:\n    print('Perfect day for voting!')",
+        "language": "python"
+      },
+      {
+        "id": "step-3", 
+        "type": "code",
+        "title": "If-Elif-Else Chains",
+        "content": "Handle multiple conditions with elif:",
+        "code": "score = 85\n\nif score >= 90:\n    grade = 'A'\n    message = 'Excellent!'\nelif score >= 80:\n    grade = 'B' \n    message = 'Good work!'\nelif score >= 70:\n    grade = 'C'\n    message = 'Satisfactory'\nelif score >= 60:\n    grade = 'D'\n    message = 'Needs improvement'\nelse:\n    grade = 'F'\n    message = 'Please study more'\n\nprint(f'Grade: {grade} - {message}')",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code", 
+        "title": "Nested Conditions",
+        "content": "You can put if statements inside other if statements:",
+        "code": "weather = 'sunny'\ntemperature = 75\nhas_umbrella = False\n\nif weather == 'sunny':\n    if temperature > 70:\n        print('Perfect beach weather!')\n    else:\n        print('Sunny but a bit cool')\nelif weather == 'rainy':\n    if has_umbrella:\n        print('Good thing you have an umbrella')\n    else:\n        print('You might get wet!')\nelse:\n    print('Check the weather again')",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Age Category",
+        "description": "Classify a person into age categories: child, teenager, or adult.",
+        "starterCode": "# Age category classifier\nage = 16\n",
+        "expectedOutput": "Age: 16\nCategory: Teenager",
+        "solution": "age = 16\n\nif age < 13:\n    category = 'Child'\nelif age < 20:\n    category = 'Teenager'\nelse:\n    category = 'Adult'\n\nprint('Age:', age)\nprint('Category:', category)"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium", 
+        "title": "BMI Calculator",
+        "description": "Calculate BMI and provide health category feedback.",
+        "starterCode": "# BMI calculator with categories\nweight = 70  # kg\nheight = 1.75  # meters\n",
+        "expectedOutput": "BMI: 22.9\nCategory: Normal weight\nRecommendation: Maintain your current lifestyle",
+        "solution": "weight = 70\nheight = 1.75\n\nbmi = weight / (height ** 2)\nbmi_rounded = round(bmi, 1)\n\nif bmi < 18.5:\n    category = 'Underweight'\n    recommendation = 'Consider gaining weight healthily'\nelif bmi < 25:\n    category = 'Normal weight' \n    recommendation = 'Maintain your current lifestyle'\nelif bmi < 30:\n    category = 'Overweight'\n    recommendation = 'Consider losing some weight'\nelse:\n    category = 'Obese'\n    recommendation = 'Consult a healthcare professional'\n\nprint(f'BMI: {bmi_rounded}')\nprint(f'Category: {category}')\nprint(f'Recommendation: {recommendation}')"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Login System",
+        "description": "Create a secure login system with multiple validation checks.",
+        "starterCode": "# Secure login system\nusername = 'admin'\npassword = 'secure123'\nattempts = 2\nis_locked = False\n",
+        "expectedOutput": "Account Status: Active\nLogin Attempt: Success\nAccess Level: Administrator\nRemaining Attempts: N/A",
+        "solution": "username = 'admin'\npassword = 'secure123'\nattempts = 2\nis_locked = False\n\n# Valid credentials\nvalid_users = {'admin': 'secure123', 'user': 'password123'}\n\nif is_locked:\n    status = 'Account Locked'\n    result = 'Access Denied'\n    access_level = 'None'\n    remaining = 0\nelif attempts <= 0:\n    status = 'Account Locked'\n    result = 'No attempts remaining'\n    access_level = 'None' \n    remaining = 0\nelif username in valid_users and valid_users[username] == password:\n    status = 'Active'\n    result = 'Success'\n    if username == 'admin':\n        access_level = 'Administrator'\n    else:\n        access_level = 'Standard User'\n    remaining = 'N/A'\nelse:\n    status = 'Active'\n    result = 'Failed'\n    access_level = 'None'\n    remaining = attempts - 1\n\nprint(f'Account Status: {status}')\nprint(f'Login Attempt: {result}')\nprint(f'Access Level: {access_level}')\nprint(f'Remaining Attempts: {remaining}')"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What keyword is used for 'else if' in Python?",
+        "type": "multiple-choice",
+        "options": ["elseif", "elif", "else if", "elsif"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "What happens if multiple elif conditions are True?",
+        "type": "multiple-choice",
+        "options": ["All are executed", "Only the first True one is executed", "Only the last True one is executed", "An error occurs"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Which of these is a correct if statement?",
+        "type": "multiple-choice",
+        "options": ["if x = 5:", "if (x == 5):", "if x == 5:", "All of the above"],
+        "correctAnswer": 2
+      }
