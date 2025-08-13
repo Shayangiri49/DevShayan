@@ -1,0 +1,121 @@
+[
+  {
+    "id": "first-lesson",
+    "title": "First Steps",
+    "description": "Complete your first lesson",
+    "icon": "fas fa-play",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 1
+    },
+    "xpReward": 50,
+    "rarity": "common"
+  },
+  {
+    "id": "basics-master",
+    "title": "Basics Master",
+    "description": "Complete all basic lessons",
+    "icon": "fas fa-star",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 5,
+      "lessonCategory": "Basics"
+    },
+    "xpReward": 100,
+    "rarity": "rare"
+  },
+  {
+    "id": "function-master",
+    "title": "Function Master",
+    "description": "Complete all function lessons",
+    "icon": "fas fa-cube",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 3,
+      "lessonCategory": "Functions"
+    },
+    "xpReward": 75,
+    "rarity": "rare"
+  },
+  {
+    "id": "streak-5",
+    "title": "On Fire!",
+    "description": "Maintain a 5-day learning streak",
+    "icon": "fas fa-fire",
+    "type": "streak",
+    "requirement": {
+      "type": "streak",
+      "value": 5
+    },
+    "xpReward": 100,
+    "rarity": "rare"
+  },
+  {
+    "id": "streak-10",
+    "title": "Dedication",
+    "description": "Maintain a 10-day learning streak",
+    "icon": "fas fa-medal",
+    "type": "streak",
+    "requirement": {
+      "type": "streak",
+      "value": 10
+    },
+    "xpReward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "xp-1000",
+    "title": "Knowledge Seeker",
+    "description": "Earn 1000 XP points",
+    "icon": "fas fa-brain",
+    "type": "xp",
+    "requirement": {
+      "type": "xp",
+      "value": 1000
+    },
+    "xpReward": 150,
+    "rarity": "rare"
+  },
+  {
+    "id": "quiz-ace",
+    "title": "Quiz Ace",
+    "description": "Score 90% or higher on 5 quizzes",
+    "icon": "fas fa-trophy",
+    "type": "quiz",
+    "requirement": {
+      "type": "quiz_score",
+      "value": 90
+    },
+    "xpReward": 125,
+    "rarity": "epic"
+  },
+  {
+    "id": "code-warrior",
+    "title": "Code Warrior",
+    "description": "Complete 20 coding exercises",
+    "icon": "fas fa-code",
+    "type": "special",
+    "requirement": {
+      "type": "exercises_completed",
+      "value": 20
+    },
+    "xpReward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "python-master",
+    "title": "Python Master",
+    "description": "Complete all Python lessons",
+    "icon": "fas fa-crown",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 50
+    },
+    "xpReward": 500,
+    "rarity": "legendary"
+  }
+]

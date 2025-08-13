@@ -1,0 +1,244 @@
+[
+  {
+    "id": "python-basics-1",
+    "title": "What is Python?",
+    "description": "Introduction to Python programming language",
+    "category": "Basics",
+    "difficulty": "beginner",
+    "estimatedTime": 5,
+    "xpReward": 25,
+    "prerequisites": [],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Welcome to Python!",
+        "content": "Python is a powerful, easy-to-learn programming language. It's used for web development, data analysis, artificial intelligence, and much more!"
+      },
+      {
+        "id": "step-2",
+        "type": "content",
+        "title": "Why Python?",
+        "content": "Python is beginner-friendly with clean, readable syntax. It's one of the most popular programming languages in the world!"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Your First Python Code",
+        "content": "Let's start with the classic 'Hello, World!' program:",
+        "code": "print('Hello, World!')",
+        "language": "python"
+      }
+    ]
+  },
+  {
+    "id": "python-variables-1",
+    "title": "Python Variables",
+    "description": "Learn how to store and use data in Python",
+    "category": "Variables",
+    "difficulty": "beginner",
+    "estimatedTime": 8,
+    "xpReward": 30,
+    "prerequisites": ["python-basics-1"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What are Variables?",
+        "content": "Variables are containers that store data values. In Python, you don't need to declare the type of variable - Python figures it out automatically!"
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating Variables",
+        "content": "Here's how you create variables in Python:",
+        "code": "name = 'Alice'\nage = 25\nheight = 5.6\nis_student = True\n\nprint(name)\nprint(age)",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "exercise",
+        "title": "Try It Yourself!",
+        "exercise": {
+          "instructions": "Create a variable called 'city' and assign it the value 'New York'",
+          "startingCode": "# Create your variable here\n",
+          "solution": "city = 'New York'",
+          "testCases": [
+            {
+              "input": "",
+              "expectedOutput": "New York"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "python-functions-1",
+    "title": "Introduction to Functions",
+    "description": "Learn to create reusable code blocks",
+    "category": "Functions",
+    "difficulty": "beginner",
+    "estimatedTime": 12,
+    "xpReward": 40,
+    "prerequisites": ["python-variables-1"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What are Functions?",
+        "content": "Functions are reusable blocks of code that perform specific tasks. They help you organize your code and avoid repetition."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating Functions",
+        "content": "Here's how to define and use a function:",
+        "code": "def greet(name):\n    return f'Hello, {name}!'\n\n# Call the function\nmessage = greet('Alice')\nprint(message)",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "exercise",
+        "title": "Create Your First Function",
+        "exercise": {
+          "instructions": "Create a function called 'add_numbers' that takes two parameters and returns their sum",
+          "startingCode": "# Define your function here\ndef add_numbers(a, b):\n    # Your code here\n    pass",
+          "solution": "def add_numbers(a, b):\n    return a + b",
+          "testCases": [
+            {
+              "input": "print(add_numbers(5, 3))",
+              "expectedOutput": "8"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "python-loops-1",
+    "title": "For Loops",
+    "description": "Learn to repeat code efficiently",
+    "category": "Loops",
+    "difficulty": "beginner",
+    "estimatedTime": 10,
+    "xpReward": 35,
+    "prerequisites": ["python-variables-1"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What are Loops?",
+        "content": "Loops allow you to repeat code multiple times. This is useful when you need to perform the same action on multiple items."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "For Loop Basics",
+        "content": "Here's a simple for loop that prints numbers:",
+        "code": "for i in range(5):\n    print(f'Number: {i}')\n\n# Loop through a list\nfruits = ['apple', 'banana', 'orange']\nfor fruit in fruits:\n    print(f'I like {fruit}')",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "exercise",
+        "title": "Practice with Loops",
+        "exercise": {
+          "instructions": "Write a for loop that prints the numbers from 1 to 5",
+          "startingCode": "# Write your loop here\n",
+          "solution": "for i in range(1, 6):\n    print(i)",
+          "testCases": [
+            {
+              "input": "",
+              "expectedOutput": "1\n2\n3\n4\n5"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "python-conditionals-1",
+    "title": "If Statements",
+    "description": "Make decisions in your code",
+    "category": "Conditionals",
+    "difficulty": "beginner",
+    "estimatedTime": 8,
+    "xpReward": 30,
+    "prerequisites": ["python-variables-1"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Making Decisions",
+        "content": "Conditional statements allow your program to make decisions based on different conditions."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "If, Elif, Else",
+        "content": "Here's how to use conditional statements:",
+        "code": "age = 18\n\nif age >= 18:\n    print('You are an adult')\nelif age >= 13:\n    print('You are a teenager')\nelse:\n    print('You are a child')",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "exercise",
+        "title": "Temperature Check",
+        "exercise": {
+          "instructions": "Write an if statement that prints 'Hot' if temperature > 30, 'Warm' if between 20-30, 'Cool' if between 10-20, and 'Cold' if below 10",
+          "startingCode": "temperature = 25\n# Write your if statement here\n",
+          "solution": "if temperature > 30:\n    print('Hot')\nelif temperature >= 20:\n    print('Warm')\nelif temperature >= 10:\n    print('Cool')\nelse:\n    print('Cold')",
+          "testCases": [
+            {
+              "input": "",
+              "expectedOutput": "Warm"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "python-lists-1",
+    "title": "Working with Lists",
+    "description": "Store multiple items in a single variable",
+    "category": "Lists",
+    "difficulty": "beginner",
+    "estimatedTime": 12,
+    "xpReward": 40,
+    "prerequisites": ["python-variables-1"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What are Lists?",
+        "content": "Lists are collections of items stored in a single variable. They can hold multiple data types and are very flexible."
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Creating and Using Lists",
+        "content": "Here's how to work with lists:",
+        "code": "# Create a list\nfruits = ['apple', 'banana', 'orange']\n\n# Access items\nprint(fruits[0])  # First item\nprint(fruits[-1]) # Last item\n\n# Add items\nfruits.append('grape')\nprint(fruits)",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "exercise",
+        "title": "List Operations",
+        "exercise": {
+          "instructions": "Create a list called 'numbers' with values [1, 2, 3], then add the number 4 to it",
+          "startingCode": "# Create your list here\n",
+          "solution": "numbers = [1, 2, 3]\nnumbers.append(4)\nprint(numbers)",
+          "testCases": [
+            {
+              "input": "",
+              "expectedOutput": "[1, 2, 3, 4]"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
