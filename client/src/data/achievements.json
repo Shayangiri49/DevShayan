@@ -117,5 +117,75 @@
     },
     "xpReward": 500,
     "rarity": "legendary"
+  },
+  {
+    "id": "algorithm-master",
+    "title": "Algorithm Master",
+    "description": "Complete all algorithm lessons",
+    "icon": "fas fa-cogs",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 1,
+      "lessonCategory": "Algorithms"
+    },
+    "xpReward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "web-scraper",
+    "title": "Web Scraper",
+    "description": "Master web scraping fundamentals",
+    "icon": "fas fa-spider",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 1,
+      "lessonCategory": "Web Scraping"
+    },
+    "xpReward": 200,
+    "rarity": "epic"
+  },
+  {
+    "id": "data-scientist",
+    "title": "Data Scientist",
+    "description": "Complete data science fundamentals",
+    "icon": "fas fa-chart-line",
+    "type": "lesson",
+    "requirement": {
+      "type": "lessons_completed",
+      "value": 1,
+      "lessonCategory": "Data Science"
+    },
+    "xpReward": 250,
+    "rarity": "legendary"
+  },
+  {
+    "id": "advanced-learner",
+    "title": "Advanced Learner",
+    "description": "Complete all advanced-level lessons",
+    "icon": "fas fa-graduation-cap",
+    "type": "lesson",
+    "requirement": {
+      "type": "difficulty_completed",
+      "value": 3,
+      "difficulty": "advanced"
+    },
+    "xpReward": 500,
+    "rarity": "legendary"
+  },
+  {
+    "id": "tech-master",
+    "title": "Technology Master",
+    "description": "Complete lessons in algorithms, web scraping, and data science",
+    "icon": "fas fa-rocket",
+    "type": "special",
+    "requirement": {
+      "type": "categories_completed",
+      "value": 3,
+      "categories": ["Algorithms", "Web Scraping", "Data Science"]
+    },
+    "xpReward": 750,
+    "rarity": "legendary"
   }
 ]

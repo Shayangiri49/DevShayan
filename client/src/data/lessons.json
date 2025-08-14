@@ -721,5 +721,291 @@
         "correctAnswer": 0
       }
     ]
+  },
+  {
+    "id": "algorithms-intro",
+    "title": "Introduction to Algorithms",
+    "description": "Learn fundamental algorithms and computational thinking principles.",
+    "category": "Algorithms",
+    "difficulty": "advanced",
+    "estimatedTime": 25,
+    "xpReward": 100,
+    "prerequisites": ["python-functions", "python-loops", "python-conditionals"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What are Algorithms?",
+        "content": "An algorithm is a step-by-step procedure for solving a problem or completing a task. In programming, algorithms are the logical foundations that enable computers to process data efficiently. Think of an algorithm as a recipe - it provides clear instructions to achieve a desired outcome.\n\nKey characteristics of good algorithms:\n• Clear and unambiguous steps\n• Finite - they must eventually terminate\n• Effective - each step must be achievable\n• Input and output defined\n• Efficient - uses resources optimally"
+      },
+      {
+        "id": "step-2",
+        "type": "content",
+        "title": "Algorithm Complexity",
+        "content": "Algorithm complexity measures how efficiently an algorithm uses time and space as input size grows:\n\n• Time Complexity: How execution time increases with input size\n• Space Complexity: How memory usage increases with input size\n\nCommon complexity notations:\n• O(1) - Constant time\n• O(log n) - Logarithmic time\n• O(n) - Linear time\n• O(n²) - Quadratic time\n• O(2ⁿ) - Exponential time"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Linear Search Algorithm",
+        "content": "Linear search checks each element sequentially until finding the target:",
+        "code": "def linear_search(arr, target):\n    \"\"\"\n    Search for target in array using linear search\n    Time Complexity: O(n)\n    Space Complexity: O(1)\n    \"\"\"\n    for i in range(len(arr)):\n        if arr[i] == target:\n            return i  # Return index if found\n    return -1  # Return -1 if not found\n\n# Example usage\nnumbers = [3, 7, 1, 9, 4, 6, 2]\ntarget = 9\n\nresult = linear_search(numbers, target)\nif result != -1:\n    print(f\"Found {target} at index {result}\")\nelse:\n    print(f\"{target} not found in the array\")",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Binary Search Algorithm",
+        "content": "Binary search works on sorted arrays by repeatedly dividing the search space:",
+        "code": "def binary_search(arr, target):\n    \"\"\"\n    Search for target in sorted array using binary search\n    Time Complexity: O(log n)\n    Space Complexity: O(1)\n    \"\"\"\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return -1\n\n# Example usage\nsorted_numbers = [1, 2, 3, 4, 6, 7, 9]\ntarget = 6\n\nresult = binary_search(sorted_numbers, target)\nprint(f\"Binary search result: {result}\")\n\n# Compare with linear search\nprint(f\"Linear search result: {linear_search(sorted_numbers, target)}\")",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Find Maximum",
+        "description": "Write a function to find the maximum element in a list.",
+        "starterCode": "def find_maximum(numbers):\n    # Write your algorithm here\n    pass\n\n# Test your function\ntest_list = [3, 7, 1, 9, 4, 6, 2]\nprint(find_maximum(test_list))",
+        "expectedOutput": "9",
+        "solution": "def find_maximum(numbers):\n    if not numbers:\n        return None\n    \n    max_val = numbers[0]\n    for num in numbers[1:]:\n        if num > max_val:\n            max_val = num\n    return max_val"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Bubble Sort",
+        "description": "Implement the bubble sort algorithm to sort a list in ascending order.",
+        "starterCode": "def bubble_sort(arr):\n    # Implement bubble sort algorithm\n    pass\n\n# Test your function\ntest_array = [64, 34, 25, 12, 22, 11, 90]\nbubble_sort(test_array)\nprint(test_array)",
+        "expectedOutput": "[11, 12, 22, 25, 34, 64, 90]",
+        "solution": "def bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Fibonacci with Memoization",
+        "description": "Implement an efficient Fibonacci function using memoization to avoid redundant calculations.",
+        "starterCode": "def fibonacci_memo(n, memo={}):\n    # Implement memoized Fibonacci\n    pass\n\n# Test your function\nfor i in range(10):\n    print(f\"F({i}) = {fibonacci_memo(i)}\")",
+        "expectedOutput": "F(0) = 0\nF(1) = 1\nF(2) = 1\nF(3) = 2\nF(4) = 3\nF(5) = 5\nF(6) = 8\nF(7) = 13\nF(8) = 21\nF(9) = 34",
+        "solution": "def fibonacci_memo(n, memo={}):\n    if n in memo:\n        return memo[n]\n    if n <= 1:\n        return n\n    memo[n] = fibonacci_memo(n-1, memo) + fibonacci_memo(n-2, memo)\n    return memo[n]"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What is the time complexity of binary search?",
+        "type": "multiple-choice",
+        "options": ["O(n)", "O(log n)", "O(n²)", "O(1)"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "Which search algorithm requires the array to be sorted?",
+        "type": "multiple-choice",
+        "options": ["Linear search", "Binary search", "Both", "Neither"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "What does O(1) complexity mean?",
+        "type": "multiple-choice",
+        "options": ["Takes 1 second", "Executes once", "Constant time regardless of input size", "Linear time"],
+        "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "id": "web-scraping-intro",
+    "title": "Web Scraping Fundamentals",
+    "description": "Learn to extract data from websites using Python's powerful scraping libraries.",
+    "category": "Web Scraping",
+    "difficulty": "advanced",
+    "estimatedTime": 30,
+    "xpReward": 120,
+    "prerequisites": ["python-functions", "python-dictionaries", "python-modules"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "What is Web Scraping?",
+        "content": "Web scraping is the process of automatically extracting data from websites. It involves sending HTTP requests to web pages and parsing the HTML content to extract specific information.\n\nCommon use cases:\n• Price monitoring for e-commerce\n• Social media sentiment analysis\n• Research data collection\n• News aggregation\n• Real estate listings\n• Job market analysis\n\nEthical considerations:\n• Respect robots.txt files\n• Don't overload servers with requests\n• Check website terms of service\n• Use rate limiting between requests"
+      },
+      {
+        "id": "step-2",
+        "type": "content",
+        "title": "Essential Libraries",
+        "content": "Python provides powerful libraries for web scraping:\n\n• requests: Make HTTP requests to websites\n• BeautifulSoup: Parse and navigate HTML/XML documents\n• selenium: Automate web browsers for dynamic content\n• scrapy: Full-featured scraping framework\n• pandas: Data manipulation and analysis\n• time: Add delays between requests\n\nNote: In this learning environment, we'll simulate web scraping concepts since we can't install external libraries, but the principles remain the same."
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "HTML Parsing Simulation",
+        "content": "Let's simulate parsing HTML content (normally you'd use BeautifulSoup):",
+        "code": "# Simulated HTML content (normally from requests.get())\nhtml_content = \"\"\"\n<html>\n<head><title>Sample News Site</title></head>\n<body>\n    <div class=\"article\">\n        <h2>Python Becomes Most Popular Language</h2>\n        <p class=\"author\">By Alice Johnson</p>\n        <p class=\"content\">Python continues to dominate programming surveys...</p>\n        <span class=\"date\">2024-01-15</span>\n    </div>\n    <div class=\"article\">\n        <h2>AI Revolution in Education</h2>\n        <p class=\"author\">By Bob Smith</p>\n        <p class=\"content\">Artificial intelligence is transforming learning...</p>\n        <span class=\"date\">2024-01-14</span>\n    </div>\n</body>\n</html>\n\"\"\"\n\n# Simple HTML parsing function\ndef extract_articles(html):\n    articles = []\n    # Simulate finding article sections\n    lines = html.split('\\n')\n    current_article = {}\n    \n    for line in lines:\n        line = line.strip()\n        if '<h2>' in line:\n            title = line.replace('<h2>', '').replace('</h2>', '')\n            current_article['title'] = title\n        elif 'class=\"author\"' in line:\n            author = line.split('>')[1].split('<')[0]\n            current_article['author'] = author\n        elif 'class=\"date\"' in line:\n            date = line.split('>')[1].split('<')[0]\n            current_article['date'] = date\n            articles.append(current_article.copy())\n            current_article = {}\n    \n    return articles\n\n# Extract and display articles\narticles = extract_articles(html_content)\nfor i, article in enumerate(articles, 1):\n    print(f\"Article {i}:\")\n    print(f\"  Title: {article['title']}\")\n    print(f\"  Author: {article['author']}\")\n    print(f\"  Date: {article['date']}\")\n    print()",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Data Processing and Storage",
+        "content": "After scraping, you typically need to clean and store the data:",
+        "code": "import json\nfrom datetime import datetime\n\n# Sample scraped data\nscraped_data = [\n    {'title': 'Python Becomes Most Popular Language', 'author': 'Alice Johnson', 'date': '2024-01-15'},\n    {'title': 'AI Revolution in Education', 'author': 'Bob Smith', 'date': '2024-01-14'},\n    {'title': 'Machine Learning Trends', 'author': 'Carol Wilson', 'date': '2024-01-13'}\n]\n\ndef clean_and_process_data(articles):\n    cleaned_articles = []\n    \n    for article in articles:\n        # Clean title (remove extra spaces, convert to title case)\n        clean_title = article['title'].strip().title()\n        \n        # Extract just the name from author\n        clean_author = article['author'].replace('By ', '')\n        \n        # Parse date\n        article_date = datetime.strptime(article['date'], '%Y-%m-%d')\n        \n        cleaned_article = {\n            'title': clean_title,\n            'author': clean_author,\n            'date': article_date.strftime('%B %d, %Y'),\n            'scraped_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S')\n        }\n        \n        cleaned_articles.append(cleaned_article)\n    \n    return cleaned_articles\n\n# Process the data\nprocessed_articles = clean_and_process_data(scraped_data)\n\n# Display processed data\nprint(\"Processed Articles:\")\nfor article in processed_articles:\n    print(f\"📰 {article['title']}\")\n    print(f\"✍️  {article['author']}\")\n    print(f\"📅 {article['date']}\")\n    print(f\"🕒 Scraped: {article['scraped_at']}\")\n    print(\"-\" * 40)\n\n# Save to JSON (simulation)\nprint(f\"\\nSaved {len(processed_articles)} articles to database\")",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Extract Email Addresses",
+        "description": "Write a function to extract email addresses from text using string methods.",
+        "starterCode": "def extract_emails(text):\n    # Extract email addresses from text\n    pass\n\n# Test data\ntext = \"Contact us at info@company.com or support@help.org for assistance.\"\nprint(extract_emails(text))",
+        "expectedOutput": "['info@company.com', 'support@help.org']",
+        "solution": "def extract_emails(text):\n    emails = []\n    words = text.split()\n    for word in words:\n        if '@' in word and '.' in word:\n            # Clean punctuation\n            email = word.strip('.,!?;:')\n            emails.append(email)\n    return emails"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Price Monitor",
+        "description": "Create a price monitoring function that tracks price changes from simulated product data.",
+        "starterCode": "def monitor_prices(current_prices, historical_prices):\n    # Compare current prices with historical data\n    pass\n\n# Test data\ncurrent = {'laptop': 999, 'phone': 699, 'tablet': 399}\nhistorical = {'laptop': 1099, 'phone': 699, 'tablet': 449}\n\nprint(monitor_prices(current, historical))",
+        "expectedOutput": "{'laptop': -100, 'phone': 0, 'tablet': -50}",
+        "solution": "def monitor_prices(current_prices, historical_prices):\n    price_changes = {}\n    for product in current_prices:\n        if product in historical_prices:\n            change = current_prices[product] - historical_prices[product]\n            price_changes[product] = change\n    return price_changes"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Data Aggregator",
+        "description": "Build a function that aggregates and analyzes scraped data with statistics.",
+        "starterCode": "def analyze_scraped_data(articles):\n    # Analyze article data and return insights\n    pass\n\n# Test data\narticles = [\n    {'author': 'Alice', 'date': '2024-01-15', 'category': 'tech'},\n    {'author': 'Bob', 'date': '2024-01-14', 'category': 'tech'},\n    {'author': 'Alice', 'date': '2024-01-13', 'category': 'science'}\n]\n\nprint(analyze_scraped_data(articles))",
+        "expectedOutput": "{'total_articles': 3, 'authors': {'Alice': 2, 'Bob': 1}, 'categories': {'tech': 2, 'science': 1}}",
+        "solution": "def analyze_scraped_data(articles):\n    analysis = {\n        'total_articles': len(articles),\n        'authors': {},\n        'categories': {}\n    }\n    \n    for article in articles:\n        # Count by author\n        author = article['author']\n        analysis['authors'][author] = analysis['authors'].get(author, 0) + 1\n        \n        # Count by category\n        category = article['category']\n        analysis['categories'][category] = analysis['categories'].get(category, 0) + 1\n    \n    return analysis"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What should you always check before scraping a website?",
+        "type": "multiple-choice",
+        "options": ["The website's color scheme", "The robots.txt file and terms of service", "The number of pages", "The website's age"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "Which Python library is commonly used for parsing HTML?",
+        "type": "multiple-choice",
+        "options": ["requests", "BeautifulSoup", "json", "datetime"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q3",
+        "question": "Why is rate limiting important in web scraping?",
+        "type": "multiple-choice",
+        "options": ["To make code run faster", "To avoid overloading the target server", "To use less memory", "To improve data quality"],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "id": "data-science-intro",
+    "title": "Data Science with Python",
+    "description": "Explore data analysis, visualization, and machine learning fundamentals using Python.",
+    "category": "Data Science",
+    "difficulty": "advanced",
+    "estimatedTime": 35,
+    "xpReward": 150,
+    "prerequisites": ["python-dictionaries", "python-functions", "python-modules"],
+    "steps": [
+      {
+        "id": "step-1",
+        "type": "content",
+        "title": "Introduction to Data Science",
+        "content": "Data Science is an interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data.\n\nKey components of Data Science:\n• Data Collection: Gathering data from various sources\n• Data Cleaning: Preparing and cleaning raw data\n• Exploratory Data Analysis (EDA): Understanding data patterns\n• Statistical Analysis: Applying statistical methods\n• Machine Learning: Building predictive models\n• Data Visualization: Creating charts and graphs\n• Communication: Presenting findings effectively\n\nPython libraries commonly used:\n• pandas: Data manipulation and analysis\n• numpy: Numerical computing\n• matplotlib/seaborn: Data visualization\n• scikit-learn: Machine learning\n• jupyter: Interactive notebooks"
+      },
+      {
+        "id": "step-2",
+        "type": "code",
+        "title": "Working with Data Structures",
+        "content": "Let's work with data using Python's built-in structures (simulating pandas functionality):",
+        "code": "# Sample sales data\nsales_data = [\n    {'date': '2024-01-01', 'product': 'Laptop', 'quantity': 5, 'price': 999, 'region': 'North'},\n    {'date': '2024-01-01', 'product': 'Phone', 'quantity': 12, 'price': 699, 'region': 'South'},\n    {'date': '2024-01-02', 'product': 'Tablet', 'quantity': 8, 'price': 399, 'region': 'North'},\n    {'date': '2024-01-02', 'product': 'Laptop', 'quantity': 3, 'price': 999, 'region': 'East'},\n    {'date': '2024-01-03', 'product': 'Phone', 'quantity': 15, 'price': 699, 'region': 'West'}\n]\n\n# Calculate total revenue for each sale\nfor sale in sales_data:\n    sale['revenue'] = sale['quantity'] * sale['price']\n    print(f\"{sale['date']}: {sale['product']} - ${sale['revenue']}\")\n\nprint(\"\\n\" + \"=\"*50)\n\n# Data aggregation - total revenue by product\nrevenue_by_product = {}\nfor sale in sales_data:\n    product = sale['product']\n    revenue = sale['revenue']\n    revenue_by_product[product] = revenue_by_product.get(product, 0) + revenue\n\nprint(\"Revenue by Product:\")\nfor product, revenue in revenue_by_product.items():\n    print(f\"{product}: ${revenue:,}\")",
+        "language": "python"
+      },
+      {
+        "id": "step-3",
+        "type": "code",
+        "title": "Statistical Analysis",
+        "content": "Let's perform basic statistical analysis on our data:",
+        "code": "# Extract numerical data for analysis\nrevenues = [sale['revenue'] for sale in sales_data]\nquantities = [sale['quantity'] for sale in sales_data]\nprices = [sale['price'] for sale in sales_data]\n\ndef calculate_statistics(data):\n    \"\"\"Calculate basic statistics for a list of numbers\"\"\"\n    n = len(data)\n    \n    # Mean (average)\n    mean = sum(data) / n\n    \n    # Median (middle value)\n    sorted_data = sorted(data)\n    if n % 2 == 0:\n        median = (sorted_data[n//2 - 1] + sorted_data[n//2]) / 2\n    else:\n        median = sorted_data[n//2]\n    \n    # Mode (most frequent value)\n    frequency = {}\n    for value in data:\n        frequency[value] = frequency.get(value, 0) + 1\n    mode = max(frequency, key=frequency.get)\n    \n    # Range\n    data_range = max(data) - min(data)\n    \n    # Standard deviation (simplified)\n    variance = sum((x - mean) ** 2 for x in data) / n\n    std_dev = variance ** 0.5\n    \n    return {\n        'mean': round(mean, 2),\n        'median': median,\n        'mode': mode,\n        'range': data_range,\n        'min': min(data),\n        'max': max(data),\n        'std_dev': round(std_dev, 2)\n    }\n\n# Analyze revenue data\nrevenue_stats = calculate_statistics(revenues)\nprint(\"Revenue Statistics:\")\nfor stat, value in revenue_stats.items():\n    print(f\"{stat.title()}: ${value:,}\" if 'revenue' in stat or stat in ['mean', 'median', 'mode', 'range', 'min', 'max'] else f\"{stat.title()}: {value}\")\n\nprint(\"\\nQuantity Statistics:\")\nquantity_stats = calculate_statistics(quantities)\nfor stat, value in quantity_stats.items():\n    print(f\"{stat.title()}: {value}\")",
+        "language": "python"
+      },
+      {
+        "id": "step-4",
+        "type": "code",
+        "title": "Data Visualization Concepts",
+        "content": "Let's create a simple text-based visualization and understand chart types:",
+        "code": "# Create a simple bar chart using text\ndef create_text_bar_chart(data, title):\n    \"\"\"Create a simple text-based bar chart\"\"\"\n    print(f\"\\n{title}\")\n    print(\"=\" * len(title))\n    \n    max_value = max(data.values())\n    scale_factor = 30 / max_value  # Scale to fit in 30 characters\n    \n    for label, value in data.items():\n        bar_length = int(value * scale_factor)\n        bar = \"█\" * bar_length\n        print(f\"{label:10} |{bar} ${value:,}\")\n    \n    print()\n\n# Visualize revenue by product\ncreate_text_bar_chart(revenue_by_product, \"Revenue by Product\")\n\n# Regional analysis\nrevenue_by_region = {}\nfor sale in sales_data:\n    region = sale['region']\n    revenue = sale['revenue']\n    revenue_by_region[region] = revenue_by_region.get(region, 0) + revenue\n\ncreate_text_bar_chart(revenue_by_region, \"Revenue by Region\")\n\n# Data insights\nprint(\"Key Insights:\")\nprint(f\"• Total Revenue: ${sum(revenues):,}\")\nprint(f\"• Average Sale: ${sum(revenues)/len(revenues):,.2f}\")\nprint(f\"• Best Selling Product: {max(revenue_by_product, key=revenue_by_product.get)}\")\nprint(f\"• Top Region: {max(revenue_by_region, key=revenue_by_region.get)}\")\n\n# Correlation analysis (simplified)\nprint(f\"\\nCorrelation Analysis:\")\nprint(f\"• Higher quantities don't always mean higher revenue\")\nprint(f\"• Product price significantly impacts total revenue\")\nprint(f\"• Regional performance varies significantly\")",
+        "language": "python"
+      },
+      {
+        "id": "step-5",
+        "type": "code",
+        "title": "Simple Machine Learning Concept",
+        "content": "Let's implement a basic linear regression to predict sales:",
+        "code": "# Simple linear regression to predict revenue based on quantity\ndef simple_linear_regression(x_data, y_data):\n    \"\"\"Calculate linear regression coefficients\"\"\"\n    n = len(x_data)\n    \n    # Calculate means\n    x_mean = sum(x_data) / n\n    y_mean = sum(y_data) / n\n    \n    # Calculate slope (m) and intercept (b) for y = mx + b\n    numerator = sum((x_data[i] - x_mean) * (y_data[i] - y_mean) for i in range(n))\n    denominator = sum((x_data[i] - x_mean) ** 2 for i in range(n))\n    \n    slope = numerator / denominator if denominator != 0 else 0\n    intercept = y_mean - slope * x_mean\n    \n    return slope, intercept\n\ndef predict_revenue(quantity, slope, intercept):\n    \"\"\"Predict revenue based on quantity\"\"\"\n    return slope * quantity + intercept\n\n# Use quantity to predict revenue\nquantities = [sale['quantity'] for sale in sales_data]\nrevenues = [sale['revenue'] for sale in sales_data]\n\nslope, intercept = simple_linear_regression(quantities, revenues)\n\nprint(\"Linear Regression Model:\")\nprint(f\"Revenue = {slope:.2f} * Quantity + {intercept:.2f}\")\nprint()\n\n# Make predictions\nprint(\"Predictions vs Actual:\")\nprint(\"Quantity | Predicted | Actual   | Difference\")\nprint(\"-\" * 45)\n\nfor i, (qty, actual) in enumerate(zip(quantities, revenues)):\n    predicted = predict_revenue(qty, slope, intercept)\n    difference = abs(predicted - actual)\n    print(f\"{qty:8} | ${predicted:8.0f} | ${actual:8} | ${difference:8.0f}\")\n\n# Test with new data\nprint(\"\\nNew Predictions:\")\ntest_quantities = [10, 20, 30]\nfor qty in test_quantities:\n    predicted = predict_revenue(qty, slope, intercept)\n    print(f\"If quantity = {qty}, predicted revenue = ${predicted:,.0f}\")",
+        "language": "python"
+      }
+    ],
+    "practiceProblems": [
+      {
+        "id": "easy-1",
+        "difficulty": "Easy",
+        "title": "Data Summary",
+        "description": "Write a function to calculate basic summary statistics for a dataset.",
+        "starterCode": "def summarize_data(numbers):\n    # Calculate count, sum, average, min, max\n    pass\n\n# Test data\ndata = [10, 15, 20, 25, 30, 35, 40]\nprint(summarize_data(data))",
+        "expectedOutput": "{'count': 7, 'sum': 175, 'average': 25.0, 'min': 10, 'max': 40}",
+        "solution": "def summarize_data(numbers):\n    if not numbers:\n        return {}\n    \n    return {\n        'count': len(numbers),\n        'sum': sum(numbers),\n        'average': sum(numbers) / len(numbers),\n        'min': min(numbers),\n        'max': max(numbers)\n    }"
+      },
+      {
+        "id": "medium-1",
+        "difficulty": "Medium",
+        "title": "Data Grouping",
+        "description": "Create a function that groups data by category and calculates totals.",
+        "starterCode": "def group_and_sum(data, group_key, sum_key):\n    # Group data and calculate sums\n    pass\n\n# Test data\nsales = [\n    {'category': 'Electronics', 'amount': 1000},\n    {'category': 'Clothing', 'amount': 500},\n    {'category': 'Electronics', 'amount': 1500},\n    {'category': 'Clothing', 'amount': 300}\n]\n\nprint(group_and_sum(sales, 'category', 'amount'))",
+        "expectedOutput": "{'Electronics': 2500, 'Clothing': 800}",
+        "solution": "def group_and_sum(data, group_key, sum_key):\n    result = {}\n    for item in data:\n        category = item[group_key]\n        amount = item[sum_key]\n        result[category] = result.get(category, 0) + amount\n    return result"
+      },
+      {
+        "id": "hard-1",
+        "difficulty": "Hard",
+        "title": "Moving Average",
+        "description": "Implement a function to calculate moving averages for time series data.",
+        "starterCode": "def moving_average(data, window_size):\n    # Calculate moving averages\n    pass\n\n# Test data\nprices = [100, 102, 101, 103, 105, 104, 106, 108, 107, 109]\nwindow = 3\nprint(moving_average(prices, window))",
+        "expectedOutput": "[101.0, 102.0, 103.0, 104.0, 105.0, 106.0, 107.0, 108.0]",
+        "solution": "def moving_average(data, window_size):\n    if window_size > len(data):\n        return []\n    \n    moving_averages = []\n    for i in range(len(data) - window_size + 1):\n        window_sum = sum(data[i:i + window_size])\n        avg = window_sum / window_size\n        moving_averages.append(avg)\n    \n    return moving_averages"
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What is the first step in most data science projects?",
+        "type": "multiple-choice",
+        "options": ["Building models", "Data collection and cleaning", "Creating visualizations", "Writing reports"],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q2",
+        "question": "Which statistical measure is most affected by outliers?",
+        "type": "multiple-choice",
+        "options": ["Median", "Mode", "Mean", "Range"],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q3",
+        "question": "What does linear regression help us do?",
+        "type": "multiple-choice",
+        "options": ["Sort data", "Predict values based on relationships", "Clean data", "Visualize data"],
+        "correctAnswer": 1
+      }
+    ]
   }
 ]
