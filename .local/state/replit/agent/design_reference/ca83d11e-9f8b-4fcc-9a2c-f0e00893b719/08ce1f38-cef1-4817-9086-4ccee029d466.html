@@ -1,0 +1,513 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyLearn - Python Learning App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfdf5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857'
+                        },
+                        secondary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'bounce-gentle': 'bounce 2s infinite',
+                        'pulse-soft': 'pulse 3s ease-in-out infinite'
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .syntax-highlight {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+        .code-line {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        }
+        .achievement-glow {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        .lesson-card:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        .progress-fill {
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 font-inter">
+    <!-- @COMPONENT: AppContainer -->
+    <div class="max-w-md mx-auto bg-white dark:bg-gray-800 min-h-screen relative overflow-hidden">
+        
+        <!-- @COMPONENT: TopNavigation -->
+        <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-code text-white text-sm"></i>
+                </div>
+                <h1 class="text-lg font-bold text-gray-900 dark:text-white">PyLearn</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- @STATE: streakCount:number = 5 -->
+                <div class="flex items-center space-x-1 bg-amber-100 dark:bg-amber-900 px-2 py-1 rounded-full">
+                    <i class="fas fa-fire text-amber-500 text-xs"></i>
+                    <span class="text-xs font-semibold text-amber-700 dark:text-amber-300" data-bind="user.streakCount">5</span>
+                </div>
+                <!-- @STATE: userXP:number = 1250 -->
+                <div class="flex items-center space-x-1">
+                    <i class="fas fa-star text-yellow-500 text-sm"></i>
+                    <span class="text-sm font-semibold text-gray-700 dark:text-gray-300" data-bind="user.xp">1,250</span>
+                </div>
+                <button class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary-500">
+                    <!-- User avatar placeholder -->
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=100&h=100&fit=crop&crop=face" alt="User Avatar" class="w-full h-full object-cover" data-mock-image="true">
+                </button>
+            </div>
+        </nav>
+
+        <!-- @COMPONENT: TabNavigation -->
+        <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex px-4">
+                <button class="flex-1 py-3 text-center border-b-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold">
+                    <i class="fas fa-home text-sm mr-2"></i>Learn
+                </button>
+                <button class="flex-1 py-3 text-center text-gray-500 dark:text-gray-400 font-medium hover:text-gray-700 dark:hover:text-gray-300">
+                    <i class="fas fa-code text-sm mr-2"></i>Code
+                </button>
+                <button class="flex-1 py-3 text-center text-gray-500 dark:text-gray-400 font-medium hover:text-gray-700 dark:hover:text-gray-300">
+                    <i class="fas fa-trophy text-sm mr-2"></i>Progress
+                </button>
+                <button class="flex-1 py-3 text-center text-gray-500 dark:text-gray-400 font-medium hover:text-gray-700 dark:hover:text-gray-300">
+                    <i class="fas fa-user text-sm mr-2"></i>Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- @COMPONENT: MainContent -->
+        <div class="flex-1 overflow-y-auto pb-20">
+            <!-- @SECTION: DailyGoal -->
+            <div class="p-4">
+                <div class="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl p-4 text-white">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-lg font-bold">Daily Goal</h2>
+                        <i class="fas fa-target text-xl"></i>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm opacity-90">Learn for 20 minutes</span>
+                        <span class="text-sm font-semibold" data-bind="dailyProgress">15/20 min</span>
+                    </div>
+                    <div class="w-full bg-white bg-opacity-20 rounded-full h-2">
+                        <div class="bg-white h-2 rounded-full progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- @SECTION: ContinueLearning -->
+            <div class="px-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Continue Learning</h3>
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 lesson-card">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">Python Functions</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Learn to create reusable code blocks</p>
+                        </div>
+                        <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-xl flex items-center justify-center ml-3">
+                            <i class="fas fa-function text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 w-20">
+                                <div class="bg-primary-500 h-1.5 rounded-full" style="width: 60%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500 dark:text-gray-400">3/5</span>
+                        </div>
+                        <button class="bg-primary-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-600">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- @SECTION: LessonCategories -->
+            <div class="px-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Python Topics</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- @MAP: categories.map(category => ( -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 lesson-card cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-play text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Basics</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">8 lessons</p>
+                        <div class="flex items-center mt-2">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                                <div class="bg-blue-500 h-1 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 lesson-card cursor-pointer">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-sync text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Loops</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">6 lessons</p>
+                        <div class="flex items-center mt-2">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                                <div class="bg-green-500 h-1 rounded-full" style="width: 67%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 lesson-card cursor-pointer">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-cube text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Functions</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">7 lessons</p>
+                        <div class="flex items-center mt-2">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                                <div class="bg-purple-500 h-1 rounded-full" style="width: 43%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 lesson-card cursor-pointer">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-sitemap text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 dark:text-white text-sm">OOP</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">12 lessons</p>
+                        <div class="flex items-center mt-2">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                                <div class="bg-red-500 h-1 rounded-full" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+
+            <!-- @SECTION: RecentAchievements -->
+            <div class="px-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Achievements</h3>
+                <div class="space-y-3">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 achievement-glow">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-trophy text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Function Master</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Completed all function lessons</p>
+                            </div>
+                            <span class="text-xs text-primary-600 dark:text-primary-400 font-semibold">NEW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- @COMPONENT: FloatingActionButton -->
+        <div class="fixed bottom-20 right-4">
+            <button class="w-14 h-14 bg-primary-500 rounded-full shadow-lg flex items-center justify-center text-white hover:bg-primary-600 transform hover:scale-105 transition-all duration-200">
+                <i class="fas fa-play text-lg"></i>
+            </button>
+        </div>
+
+        <!-- @COMPONENT: BottomNavigation -->
+        <div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="max-w-md mx-auto flex">
+                <button class="flex-1 py-3 text-center bg-primary-50 dark:bg-primary-900 text-primary-600 dark:text-primary-400">
+                    <i class="fas fa-home text-lg mb-1 block"></i>
+                    <span class="text-xs font-medium">Learn</span>
+                </button>
+                <button class="flex-1 py-3 text-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                    <i class="fas fa-code text-lg mb-1 block"></i>
+                    <span class="text-xs font-medium">Practice</span>
+                </button>
+                <button class="flex-1 py-3 text-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                    <i class="fas fa-chart-line text-lg mb-1 block"></i>
+                    <span class="text-xs font-medium">Progress</span>
+                </button>
+                <button class="flex-1 py-3 text-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
+                    <i class="fas fa-user text-lg mb-1 block"></i>
+                    <span class="text-xs font-medium">Profile</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: AppContainer -->
+
+    <!-- @COMPONENT: LessonModal (Hidden by default) -->
+    <div id="lessonModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="max-w-md mx-auto bg-white dark:bg-gray-800 h-full overflow-y-auto">
+            <!-- @COMPONENT: LessonHeader -->
+            <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center justify-between sticky top-0">
+                <button class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                    <i class="fas fa-arrow-left text-lg"></i>
+                </button>
+                <h2 class="font-semibold text-gray-900 dark:text-white">Python Variables</h2>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">1/5</span>
+                    <div class="w-20 bg-gray-200 dark:bg-gray-700 rounded-full h-1">
+                        <div class="bg-primary-500 h-1 rounded-full" style="width: 20%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- @COMPONENT: LessonContent -->
+            <div class="p-4 space-y-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">What are Variables?</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Variables are containers that store data values. In Python, you don't need to declare the type of variable - Python figures it out automatically!
+                    </p>
+                </div>
+
+                <!-- @COMPONENT: CodeExample -->
+                <div class="syntax-highlight rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-gray-300 text-sm font-medium">Example</span>
+                        <button class="text-gray-400 hover:text-white">
+                            <i class="fas fa-copy text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="code-line text-gray-300">
+                            <span class="text-blue-400">name</span> <span class="text-white">=</span> <span class="text-green-400">"Alice"</span>
+                        </div>
+                        <div class="code-line text-gray-300">
+                            <span class="text-blue-400">age</span> <span class="text-white">=</span> <span class="text-yellow-400">25</span>
+                        </div>
+                        <div class="code-line text-gray-300">
+                            <span class="text-purple-400">print</span><span class="text-white">(</span><span class="text-blue-400">name</span><span class="text-white">)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- @COMPONENT: InteractiveExercise -->
+                <div class="bg-primary-50 dark:bg-primary-900 rounded-xl p-4">
+                    <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Try it yourself!</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Create a variable called 'city' and assign it the value 'New York'</p>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-3 border">
+                        <input type="text" class="w-full bg-transparent text-gray-900 dark:text-white code-line text-sm outline-none" placeholder="Type your code here..." data-mock="true">
+                    </div>
+                    <button class="w-full bg-primary-500 text-white py-2 rounded-lg mt-3 font-medium hover:bg-primary-600">
+                        Check Answer
+                    </button>
+                </div>
+            </div>
+
+            <!-- @COMPONENT: LessonNavigation -->
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+                <div class="flex space-x-3">
+                    <button class="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-3 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700">
+                        <i class="fas fa-arrow-left mr-2"></i>Previous
+                    </button>
+                    <button class="flex-1 bg-primary-500 text-white py-3 rounded-lg font-medium hover:bg-primary-600">
+                        Next<i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: LessonModal -->
+
+    <!-- @COMPONENT: CodeEditorModal (Hidden by default) -->
+    <div id="codeEditorModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="max-w-md mx-auto bg-white dark:bg-gray-800 h-full flex flex-col">
+            <!-- @COMPONENT: CodeEditorHeader -->
+            <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center justify-between">
+                <button class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                    <i class="fas fa-arrow-left text-lg"></i>
+                </button>
+                <h2 class="font-semibold text-gray-900 dark:text-white">Python Playground</h2>
+                <button class="bg-primary-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-600">
+                    <i class="fas fa-play mr-1"></i>Run
+                </button>
+            </div>
+
+            <!-- @COMPONENT: CodeEditor -->
+            <div class="flex-1 flex flex-col">
+                <div class="flex-1 syntax-highlight">
+                    <textarea class="w-full h-full bg-transparent text-gray-300 p-4 resize-none outline-none code-line text-sm" placeholder="# Write your Python code here
+print('Hello, World!')" data-mock="true"></textarea>
+                </div>
+
+                <!-- @COMPONENT: OutputConsole -->
+                <div class="h-32 bg-gray-900 border-t border-gray-700">
+                    <div class="flex items-center justify-between px-4 py-2 border-b border-gray-700">
+                        <span class="text-gray-400 text-sm font-medium">Output</span>
+                        <button class="text-gray-400 hover:text-white">
+                            <i class="fas fa-trash text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 h-24 overflow-y-auto">
+                        <div class="text-green-400 text-sm code-line" data-mock="true">Hello, World!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: CodeEditorModal -->
+
+    <!-- @COMPONENT: QuizModal (Hidden by default) -->
+    <div id="quizModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="max-w-md mx-auto bg-white dark:bg-gray-800 h-full overflow-y-auto">
+            <!-- @COMPONENT: QuizHeader -->
+            <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center justify-between sticky top-0">
+                <button class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                    <i class="fas fa-arrow-left text-lg"></i>
+                </button>
+                <h2 class="font-semibold text-gray-900 dark:text-white">Quiz Time!</h2>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-clock text-primary-500"></i>
+                    <span class="text-sm text-gray-500 dark:text-gray-400" data-bind="quiz.timeRemaining">2:30</span>
+                </div>
+            </div>
+
+            <!-- @COMPONENT: QuizContent -->
+            <div class="p-4 space-y-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary-100 dark:bg-secondary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-question text-secondary-600 dark:text-secondary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Question 1 of 5</h3>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div class="bg-secondary-500 h-2 rounded-full progress-fill" style="width: 20%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                        Which of the following is the correct way to create a variable in Python?
+                    </h4>
+
+                    <!-- @COMPONENT: QuizOptions -->
+                    <div class="space-y-3">
+                        <button class="w-full p-4 text-left border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900 transition-all duration-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 border-2 border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-gray-600 dark:text-gray-400">A</span>
+                                </div>
+                                <span class="text-gray-900 dark:text-white">var name = "John"</span>
+                            </div>
+                        </button>
+
+                        <button class="w-full p-4 text-left border-2 border-primary-500 bg-primary-50 dark:bg-primary-900 rounded-xl">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-white">B</span>
+                                </div>
+                                <span class="text-gray-900 dark:text-white">name = "John"</span>
+                            </div>
+                        </button>
+
+                        <button class="w-full p-4 text-left border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900 transition-all duration-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 border-2 border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-gray-600 dark:text-gray-400">C</span>
+                                </div>
+                                <span class="text-gray-900 dark:text-white">string name = "John"</span>
+                            </div>
+                        </button>
+
+                        <button class="w-full p-4 text-left border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900 transition-all duration-200">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 border-2 border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-gray-600 dark:text-gray-400">D</span>
+                                </div>
+                                <span class="text-gray-900 dark:text-white">name := "John"</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- @COMPONENT: QuizFeedback -->
+                <div class="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 rounded-xl p-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-green-800 dark:text-green-200 mb-1">Correct!</h5>
+                            <p class="text-sm text-green-700 dark:text-green-300">
+                                In Python, you can create variables simply by assigning a value. No need to declare the type!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- @COMPONENT: QuizNavigation -->
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+                <button class="w-full bg-primary-500 text-white py-3 rounded-lg font-medium hover:bg-primary-600">
+                    Next Question<i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: QuizModal -->
+
+    <script>
+        // TODO: Implement business logic, API calls, or state management
+        (function() {
+            // Modal controls - basic show/hide functionality for demonstration
+            const lessonModal = document.getElementById('lessonModal');
+            const codeEditorModal = document.getElementById('codeEditorModal');
+            const quizModal = document.getElementById('quizModal');
+
+            // TODO: Implement lesson data loading from JSON files
+            // TODO: Implement progress tracking with local storage
+            // TODO: Implement XP and achievement system
+            // TODO: Implement streak counter logic
+            // TODO: Implement code editor with syntax highlighting
+            // TODO: Implement Python code execution with Pyodide
+            // TODO: Implement quiz scoring and feedback system
+            // TODO: Implement user profile management
+            
+            // Basic theme toggle functionality
+            const themeToggle = document.createElement('button');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggle.className = 'fixed top-4 left-4 z-50 w-10 h-10 bg-gray-800 text-white rounded-full flex items-center justify-center';
+            document.body.appendChild(themeToggle);
+            
+            themeToggle.addEventListener('click', function() {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+
+            // Demonstration of smooth animations for progress bars
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const targetWidth = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 100);
+            });
+        })();
+    </script>
+</body>
+</html>
